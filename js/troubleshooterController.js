@@ -24,8 +24,8 @@ troubleshooterApp.controller( "troubleshooterController", function( $scope ){
         window.setTimeout(  window.componentHandler.upgradeDom, 100 );
     };
 
-    $scope.showGuide = function( url ){
-        $scope.guideUrl = url;
+    $scope.showGuide = function( guide ){
+        $scope.guide = guide;
         $scope.guideOpen = true;
     };
 
