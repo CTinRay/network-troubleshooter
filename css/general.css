@@ -42,17 +42,42 @@ main {
     font-size: 16px;
 }
 
-.dialog{
-    display: block;
+.dialog-wrapper {
+    display: flex;
     position: fixed;
-    top: 10px;
-    left: 10px;
-    width: calc( 100% - 20px );
-    height: calc( 100% - 20px );
-    background-color: white;
-    z-index: 200;
-    overflow: scroll;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    align-items: center;
+
 }
 
-.dialog div{
-    display
+.dialog{
+    display: block;
+    width: calc( 80%  );
+    height: calc( 80% );
+    background-color: white;
+    z-index: 200;
+    overflow: hidden;
+    margin: auto;
+}
+
+
+.dialog-header {
+    display: block;    
+    top: 0px;
+    width: 100%;
+    height: 64px;
+    background-color: #3F51B5;
+    color: white;
+}
+
+.dialog-content {
+    height: calc( 100% - 94px );
+    width: 100%;
+    overflow-y:scroll;
+    overflow-x:hidden;
+    padding: 15px;
+}
+    

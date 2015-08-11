@@ -24,7 +24,7 @@
 		            </span>
                         </div>
 		        <div class="enquiry-description" ng-bind-html="currentEnquiry.enquiry" >
-                         
+                            
 		        </div>
                         <div class="guides">
                             <button ng-repeat="guide in currentEnquiry.guides"
@@ -57,14 +57,19 @@
         </table>
     </main>
 
-    <div class="dialog"  ng-show="guideOpen">
-        <div ng-include="guideUrl">
-            
+    <div class="dialog-wrapper" ng-show="guideOpen">
+        <div class="dialog mdl-shadow--2dp"   >
+            <div class="dialog-header" >
+                {{ guideName }}
+            </div> 
+            <div class="dialog-content" >
+                <div ng-include="guideUrl"></div>
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+                        ng-click="hideGuide();">
+                    Got it!
+                </button>                        
+            </div>
         </div>
-        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
-                ng-click="hideGuide();">
-            Got it!
-        </button>        
     </div>
     
     <!-- Google MDL -->
