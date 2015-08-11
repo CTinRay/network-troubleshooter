@@ -1,66 +1,57 @@
-<! DOCTYPE html >
+<!DOCTYPE html>
 <head>
     <meta charser="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     
 </head>
 <body ng-app="networkTroubleshooter">
+    <main class="mdl-layout__content">
+        <table ng-controller="troubleshooterController" 
+	       class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp mdl-cell mdl-cell--6-col
+                      enquiry-table">
+	    <tbody>
+	        <tr ng-repeat=" ( index, enquiry ) in enquiryHistory">
+		    <td class="mdl-data-table__cell--non-numeric" ng-click="historyBacktrack(index)">
+		        <span class="enquiry-history-title">
+			    {{ enquiry.title }}
+		        </span>
+		    </td>
+	        </tr>
+	        <tr>
+		    <td class="mdl-data-table__cell--non-numeric">
+                        <div class="enquiry-title">
+                            <span >
+			        {{ currentEnquiry.title }}
+		            </span>
+                        </div>
+		        <div class="enquiry-description">
+			    {{ currentEnquiry.enquiry }}
+		        </div>
+		        <div class="answers">
+                            <div class="answer" ng-repeat="situation in currentEnquiry.situation ">
+			        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" >
+			            <input type="radio" class="mdl-radio__button" ng-model="currentEnquiry.next"
+                                           value="{{ situation.next }}" name="next" />
+			            <span class="mdl-radio__label">
+                                        {{ situation.answer }}
+                                    </span>
+			        </label>
+                            </div>
+		        </div>
+                        <div >
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+                                    ng-click="nextEnquiry(currentEnquiry.next)">
+                                Next
+                            </button>
+                        </div>
+                        
+		    </td>
+	        </tr>
 
-    <table ng-controller="troubleshooterController"
-	   class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
-	<tbody>
-	    <tr ng-repeat="enquiry in enquiryHistory">
-		<td class="mdl-data-table__cell--non-numeric">
-		    <span>
-			{{ enquiry.title }}
-		    </span>
-		</td>
-	    </tr>
-	    <tr>
-		<td class="mdl-data-table__cell--non-numeric">
-		    <span>
-			{{ currentEnquiry.title }}
-		    </span>
-		    <div>
-			{{ currentEnquiry.enquiry }}
-		    </div>
-		    <div>
-			<label ng-repeat="situation in currentEnquiry.situation "
-                               class="mdl-radio mdl-js-radio mdl-js-ripple-effect" >
-			    <input type="radio" class="mdl-radio__button" ng-model="currentEnquiry.next"
-                                   value="{{ situation.next }}" name="next" />
-			    <span class="mdl-radio__label">
-                                {{ situation.answer }}
-                            </span>
-			</label>
-		    </div>
-                    <div>
-                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
-                                ng-click="nextEnquiry(currentEnquiry.next)">
-                            Next
-                        </button>
-                    </div>
-                    <span> {{ currentEnquiry.next }} </span>
-                                        
-		</td>
-	    </tr>
+	    </tbody>
+        </table>
+    </main>
 
-	</tbody>
-    </table>
-
-    <label  class="mdl-radio mdl-js-radio mdl-js-ripple-effect" >
-	<input type="radio" class="mdl-radio__button" 
-               value="text" name="test" />
-	<span class="mdl-radio__label">
-            test
-        </span>
-    </label>
-    <label  class="mdl-radio mdl-js-radio mdl-js-ripple-effect" >
-	<input type="radio" class="mdl-radio__button" 
-               value="text" name="test" />
-	<span class="mdl-radio__label">
-            test
-        </span>
-    </label>
 
     
     <!-- Google MDL -->
@@ -71,4 +62,7 @@
     <script src="bower_components/angular/angular.js"></script>
     <script src="js/enquiryMap.js"></script>
     <script src="js/troubleshooterController.js"></script>
+    <!-- My CSS file -->
+    <link rel="stylesheet" href="css/general.css">
+
 </body>

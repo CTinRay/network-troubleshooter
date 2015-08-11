@@ -2,7 +2,7 @@
 var model = model || {};
 model.enquiryMap =  {
     issue:{
-	title: "Issue:",
+	title: "Issue",
 	enquiry: "What is the issue?",
 	situation:[
 	    {

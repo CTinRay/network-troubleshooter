@@ -1,0 +1,42 @@
+
+.mdl-data-table__cell--non-numeric {
+    padding-bottom: 12px !important;
+}
+
+main {
+    width: 100%;
+}
+
+.enquiry-history-title {
+    font-size: 20px;
+    color: #9F9F9F;
+}
+
+.enquiry-history-title:hover {
+    font-size: 20px;
+    color: #A0A0A0;
+}
+
+.enquiry-table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.answers {
+    padding: 10px;
+}
+
+.answers .answer {
+    display: block;
+}
+
+.enquiry-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.enquiry-description {
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+    
