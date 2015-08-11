@@ -41,4 +41,18 @@ main {
     margin-bottom: 5px;
     font-size: 16px;
 }
-    
+
+.dialog{
+    display: block;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: calc( 100% - 20px );
+    height: calc( 100% - 20px );
+    background-color: white;
+    z-index: 200;
+    overflow: scroll;
+}
+
+.dialog div{
+    display

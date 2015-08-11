@@ -123,6 +123,12 @@ model.enquiryMap =  {
     ip: {
 	title: "What is the IP you get",
 	enquiry: "What is the IP you get?",
+        guides: [
+            {
+                name: "How to see my ID?",
+                url: "guides/check-ip.html"
+            }
+        ],
 	situation: [
 	    {
 		answer: "140.112.XX.XX",

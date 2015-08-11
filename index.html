@@ -4,10 +4,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
 </head>
-<body ng-app="networkTroubleshooter">
+<body ng-app="networkTroubleshooter"  ng-controller="troubleshooterController">
     <main class="mdl-layout__content">
-        <table ng-controller="troubleshooterController" 
-	       class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp mdl-cell mdl-cell--6-col
+        <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp mdl-cell mdl-cell--6-col
                       enquiry-table">
 	    <tbody>
 	        <tr ng-repeat=" ( index, enquiry ) in enquiryHistory">
@@ -25,8 +24,15 @@
 		            </span>
                         </div>
 		        <div class="enquiry-description" ng-bind-html="currentEnquiry.enquiry" >
-
+                         
 		        </div>
+                        <div class="guides">
+                            <button ng-repeat="guide in currentEnquiry.guides"
+                                    class="mdl-button mdl-js-button mdl-js-ripple-effect""
+                                    ng-click="showGuide( guide.url )">
+                                {{ guide.name }}
+                            </button>                            
+                        </div>
 		        <div class="answers">
                             <div class="answer" ng-repeat="(index, situation) in currentEnquiry.situation ">
 			        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" >
@@ -51,7 +57,15 @@
         </table>
     </main>
 
-
+    <div class="dialog"  ng-show="guideOpen">
+        <div ng-include="guideUrl">
+            
+        </div>
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+                ng-click="hideGuide();">
+            Got it!
+        </button>        
+    </div>
     
     <!-- Google MDL -->
     <link rel="stylesheet" href="/bower_components/material-design-lite/material.min.css">
@@ -59,7 +73,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <!-- angular -->
     <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>    
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>    
     <script src="js/enquiryMap.js"></script>
     <script src="js/troubleshooterController.js"></script>
     <!-- My CSS file -->
