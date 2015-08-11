@@ -3,14 +3,14 @@ var model = model || {};
 model.enquiryMap =  {
     issue:{
 	title: "Issue",
-	enquiry: "What is the issue?",
+	enquiry: "What the problem you encounter?",
 	situation:[
 	    {
 		answer: "Can not connect to internet.",
 		next: "accessibility"
 	    },
 	    {
-		answer: "Slow speed.",
+		answer: "The network speed is slow.",
 		next: "slowSpeed"
 	    }
 	]
@@ -18,7 +18,7 @@ model.enquiryMap =  {
 
     accessibility: {
 	title: "Accessibility",	    
-	enquiry: "Can you open the network register page?",
+	enquiry: "Can you open the <a href='http://140.112.2.197'>dorm network registration page</a>?",
 	situation: [		    
 	    {
 		answer: "Yes",
@@ -45,7 +45,7 @@ model.enquiryMap =  {
 	    },
 	    {
 		answer: "I don't know",
-		next: "Windows"
+		next: "networIcon"
 	    }
 	]	
     },

@@ -20,6 +20,8 @@ main {
 .enquiry-table {
     margin-left: auto;
     margin-right: auto;
+    table-layout: fixed;
+    white-space: normal;
 }
 
 .answers {

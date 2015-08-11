@@ -24,23 +24,22 @@
 			        {{ currentEnquiry.title }}
 		            </span>
                         </div>
-		        <div class="enquiry-description">
-			    {{ currentEnquiry.enquiry }}
+		        <div class="enquiry-description" ng-bind-html="currentEnquiry.enquiry" >
+
 		        </div>
 		        <div class="answers">
-                            <div class="answer" ng-repeat="situation in currentEnquiry.situation ">
+                            <div class="answer" ng-repeat="(index, situation) in currentEnquiry.situation ">
 			        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" >
-			            <input type="radio" class="mdl-radio__button" ng-model="currentEnquiry.next"
-                                           value="{{ situation.next }}" name="next" />
-			            <span class="mdl-radio__label">
-                                        {{ situation.answer }}
+			            <input type="radio" class="mdl-radio__button" ng-model="currentEnquiry.selected"
+                                           ng-value="{{ { index:index, next:situation.next} }}" name="next" />
+			            <span class="mdl-radio__label" ng-bind-html="situation.answer">
                                     </span>
 			        </label>
                             </div>
 		        </div>
                         <div >
                             <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
-                                    ng-click="nextEnquiry(currentEnquiry.next)">
+                                    ng-click="nextEnquiry(currentEnquiry.selected.next)">
                                 Next
                             </button>
                         </div>
@@ -60,6 +59,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <!-- angular -->
     <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>    
     <script src="js/enquiryMap.js"></script>
     <script src="js/troubleshooterController.js"></script>
     <!-- My CSS file -->

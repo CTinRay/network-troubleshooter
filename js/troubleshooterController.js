@@ -1,6 +1,6 @@
 'use strict';
 
-var troubleshooterApp = angular.module( "networkTroubleshooter", [] );
+var troubleshooterApp = angular.module( "networkTroubleshooter", ["ngSanitize"] );
 
 troubleshooterApp.controller( "troubleshooterController", function( $scope ){
     $scope.enquiryHistory = [];
