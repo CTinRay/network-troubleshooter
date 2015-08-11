@@ -1,0 +1,74 @@
+<! DOCTYPE html >
+<head>
+    <meta charser="utf-8"/>
+    
+</head>
+<body ng-app="networkTroubleshooter">
+
+    <table ng-controller="troubleshooterController"
+	   class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+	<tbody>
+	    <tr ng-repeat="enquiry in enquiryHistory">
+		<td class="mdl-data-table__cell--non-numeric">
+		    <span>
+			{{ enquiry.title }}
+		    </span>
+		</td>
+	    </tr>
+	    <tr>
+		<td class="mdl-data-table__cell--non-numeric">
+		    <span>
+			{{ currentEnquiry.title }}
+		    </span>
+		    <div>
+			{{ currentEnquiry.enquiry }}
+		    </div>
+		    <div>
+			<label ng-repeat="situation in currentEnquiry.situation "
+                               class="mdl-radio mdl-js-radio mdl-js-ripple-effect" >
+			    <input type="radio" class="mdl-radio__button" ng-model="currentEnquiry.next"
+                                   value="{{ situation.next }}" name="next" />
+			    <span class="mdl-radio__label">
+                                {{ situation.answer }}
+                            </span>
+			</label>
+		    </div>
+                    <div>
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+                                ng-click="nextEnquiry(currentEnquiry.next)">
+                            Next
+                        </button>
+                    </div>
+                    <span> {{ currentEnquiry.next }} </span>
+                                        
+		</td>
+	    </tr>
+
+	</tbody>
+    </table>
+
+    <label  class="mdl-radio mdl-js-radio mdl-js-ripple-effect" >
+	<input type="radio" class="mdl-radio__button" 
+               value="text" name="test" />
+	<span class="mdl-radio__label">
+            test
+        </span>
+    </label>
+    <label  class="mdl-radio mdl-js-radio mdl-js-ripple-effect" >
+	<input type="radio" class="mdl-radio__button" 
+               value="text" name="test" />
+	<span class="mdl-radio__label">
+            test
+        </span>
+    </label>
+
+    
+    <!-- Google MDL -->
+    <link rel="stylesheet" href="/bower_components/material-design-lite/material.min.css">
+    <script src="/bower_components/material-design-lite/material.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- angular -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="js/enquiryMap.js"></script>
+    <script src="js/troubleshooterController.js"></script>
+</body>
