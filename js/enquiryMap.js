@@ -22,11 +22,11 @@ model.enquiryMap =  {
 	situation: [		    
 	    {
 		answer: "Yes",
-		next: "os"
+		next: "dns"
 	    },
 	    {
 		answer: "No",
-		next: "networkIcon"
+		next: "contact"
 	    }
 	]
     },
@@ -60,12 +60,20 @@ model.enquiryMap =  {
 	enquiry: "What is the network status icon?</br><img src='images/windows-network-status-icon-loacation.png'/>",
 	situation: [
 	    {
+		answer: "<img class='little' src='images/status-normal.png'/>",
+		next: "accessibility"
+	    },
+	    {
 		answer: "<img class='little' src='images/yellow-trangle-no-trans.png'/>",
 		next: "register"
 	    },
 	    {
 		answer: "<img class='little' src='images/red-x-no-trans.png'/>",
 		next: "hardware"
+	    },
+            {
+		answer:"other",
+		next: "contact"
 	    }
 	]
     },
@@ -113,7 +121,7 @@ model.enquiryMap =  {
 
     computerHardware: {
 	title: "Computer Hardware",
-	enquiry: "Your computer hardware may be broken.",
+	enquiry: "Your computer hardware may have some problem. Or, sometimes, some weird situation could happen. Your dorm network management assistant may be able to help you.",
 	situation: [
 	    {
 		answer: "Ok Bye~",
@@ -128,10 +136,10 @@ model.enquiryMap =  {
     
     ip: {
 	title: "What is the IP you get",
-	enquiry: "What is the IP you get?",
+	enquiry: "What is the IP you get?<br/>( XX represent number 2~255 )",
         guides: [
             {
-                name: "How to see my ID?",
+                name: "How to see my IP?",
                 url: "guides/check-ip.html"
             }
         ],
@@ -178,28 +186,38 @@ model.enquiryMap =  {
 	    {
 		answer: "No",
 		next: "registerGuide"
-	    },
-	    {
-		answer: "I am not sure.",
-		next: "registerAgain"
 	    }
 	]
     },
 
     registerGuide: {
 	title: "Register",
-	enquiry: "Now go back to your room, using the network from the socket on the wall. Try if you can go to the register page. And blah~",
+	enquiry: "When you are in your room, using the dorm wired network, see if you can open the <a href='140.112.2.197' >dorm network registration page</a>. If you can, complete the registration process, and wait for 5~10 minutes. Can you connect to the internet now?",
+        guides: [
+            {
+                name: "How to register the dorm network?",
+                url: "guides/register.html"
+            }
+        ],        
 	situation:[
 	    {
-		answer: "Yes, it connect successfully!",
+		answer: "I finish the registeration. And I can access to the internet now.",
 		next: "finish"
 	    },
+            {
+                answer: "I can open the registeration page, but it refuse me to register.",
+                next: "rent"
+            },
+            {
+                answer: "I can open the registeration page, but something seems to go wrong.",
+                next: "contact"
+            },
 	    {
-		answer: "No, I can not open the registery page",
+		answer: "I have registered, but I still can not connect to the internet.",
 		next: "ip"
 	    },
 	    {
-		answer: "No, I can not connect to the Internet after regeration.",
+		answer: "I can not open the registration page",
 		next: "ip"
 	    }
 	]
@@ -207,22 +225,36 @@ model.enquiryMap =  {
 
     dhcp: {
 	title: "DHCP Setting",
-	enquiry: "Check if you have turn on the DHCP. Blah~~~~",
+	enquiry: "Check if you have enabled the DHCP. If you don't, enable it and wait for 1~5 minutes.",
+        guides: [
+            {
+                name: "How to see if my DHCP is enable?",
+                url: "guides/check-dhcp.html"
+            },
+            {
+                name: "How to enable DHCP?",
+                url: "guides/enable-dhcp.html"
+            },
+            {
+                name: "How to see my IP?",
+                url: "guides/check-ip.html"
+            }
+        ],
 	situation: [
+            {
+                answer: "After DHCP is enabled, I still can not connect to the internet.<br/>My IP is 140.112.XX.XX",
+                next: "block"
+            },
+            {
+                answer: "After DHCP is enabled, I still can not connect to the internet.<br/>My IP is not 140.112.XX.XX.",
+                next: "renew"
+            },
 	    {
-		answer: "Yes, I can connect to the internet now.",
+		answer: "After DHCP is enabled, I can connect to the internet.",
 		next: "finish"
 	    },
 	    {
-		answer: "No, I still can not connect to the net. I get IP 140.112.XX.XX",
-		next: "block"
-	    },
-	    {
-		answer: "No, I still can not connect to the net. I get IP other than 140.112.XX.XX",
-		next: "setIP"
-	    },
-	    {
-		answer: "This trouble shooter can not help me. Contact the network management assistant.",
+		answer: "I am so confused.",
 		next: "contact"
 	    }
 	]
@@ -230,10 +262,10 @@ model.enquiryMap =  {
 
     block: {
 	title: "Check if your IP is blocked",
-	enquiry: "Go to the page. See if you have been blocked",
+	enquiry: "Check <a href='http://140.112.2.197/virus_st/index.html'>this page</a> to see if your student ID is on the list. <br/>Or check if your IP is blocked in <a href='http://cert.ntu.edu.tw/Module/Index/ip.php'>this page</a>.",
 	situation: [
 	    {
-		answer: "Yes, I am on the list",
+		answer: "Oh, so bad, I was blocked",
 		next: "scan"
 	    },
 	    {
@@ -243,35 +275,152 @@ model.enquiryMap =  {
 	]
     },
 
+    renew: {
+        title: "DHCP renew",
+        enquiry: "Can you manually make your computer renew network configuration using DHCP?",
+        guides: [
+            {
+                name: "How to make my computer renew IP using DHCP?",
+                url: "renew-dhcp.html"
+            }
+        ],
+        situation: [
+            {
+                answer: "After I try many times, I still can not connect to the internet.",
+                next: "contact"
+            },
+            {
+                answer: "I can not understand how to do that.",
+                next: "setIP"
+            },
+            {
+                answer: "This step fix solve my problem!!",
+                next: "finish"
+            }            
+        ]
+    },
     setIP: {
 	title: "Manually set your IP",
-	enquiry: "Go to the rester page to see what is your IP. Then set your IP manually.",
+	enquiry: "Go to registration page to see what IP you should use. Then manually set your computer's IP accrodingly.",
+        guides: [
+            {
+                name: "How to know the IP I should use?",
+                url: "guides/check-register-ip.html"
+            },
+            {
+                name: "How to set my computer's IP?",
+                url: "guides/set-ip.html"
+            }
+        ],
 	situation: [
 	    {
-		answer: "I successfully connect to the Net",
+		answer: "I successfully connect to the internet.",
 		next: "finish"
 	    },
-	    {
-		answer: "Contact the network management assistant",
-		next: "contact"
-	    }
+            {
+                answer: "I can not understand how to do that.",
+                next: "contact"
+            }
 	]
     },
 
     scan: {
 	title: "Scan your computer.",
-	enquiry: "Install one anti-virus software and scan your computer. If you don't have anti-virus software, you can download one from NTU CC. After you find out and remove the virus, please contact the network management assistant. ( If you are blocked many time, the network management assistant may suggest that you reinstall the operation of your computer. )"
+        guides: [
+            {
+                name: "How to download a anti-virus software from NTU computer center?",
+                url: "guides/anti-virus.html"
+            }            
+        ],
+	enquiry: "Install one anti-virus software and scan your computer. If you don't have anti-virus software, you can download one from <a href='https://www.cc.ntu.edu.tw/chinese/services/serv_e04.asp'>NTU computer center</a>. After you find out and remove the virus, please contact the network management assistant. ( If you are blocked many time, the network management assistant may suggest that you reinstall the operation system of your computer. )"
     },
     
     contact: {
-	title: "Contact the network management assistant.",
+	title: "Contact the network management assistant.",        
 	situation: [
 	]		
     },
+
+    slowSpeed: {
+        title: "Slow Network Speed",
+        enquiry: "Go to the <a href='http://speed.ntu.edu.tw/'> ntu network speed test</a> page to test your network speed.",
+        situation: [
+            {
+                answer: "It tells me that my download speed is > 8 mbps",
+                next: "wanSpeed"
+            },
+            {
+                answer: "It tells me that my download speed is < 8 mbps",
+                next: "lanSpeed"
+            }
+        ]
+    },
+
+    lanSpeed: {
+        title: "Campus Low Speed",
+        enquiry: "Something seems to go wrong. If the network keep slow, please contact your dorm network management assistant.",
+        situation: [
+            {
+                answer: "Contact the dorm network management  assistant.",
+                next: "contact"
+            },
+            {
+                answer: "Finish",
+                next: "finish"
+            }
+        ]
+    },
+    
+    wanSpeed: {
+        title: "WAN Speed",
+        enquiry: "Try <a href='http://speed2.hinet.net/do.aspx'>Hinet network speed test</a>.",
+        situation: [
+            {
+                answer: "It tells me that my download speed is > 8 mbps",
+                next: "dns"
+            },
+            {
+                answer: "It tells me that my download speed is < 8 mbps",
+                next: "reallySlow"
+            }
+        ]
+    },
+
+    dns: {
+        title: "DNS Setting",
+        enquiry: "Your problem may be result from improper DNS settings. Try to set DNS lookup server to be 140.112.254.4 and 8.8.8.8.",
+        guides: [
+            {
+                name: "How to configure DNS?",
+                url: "guides/dns.html"
+            }
+        ],
+        situation: [
+            {
+                answer: "That fix my problem.",
+                next: "finish"
+            },
+            {
+                answer: "The problem persist for a long time.<br/>Network management assistant may be helpful.",
+                next: "contact"
+            }
+        ]            
+    },
     
     finish: {
-	title: "finish"
-	
+	title: "finish",
+        guide:[
+            {
+                name: "about",
+                url: "about.html"
+            }
+        ],
+	situation: [
+            {
+                answer: "Finish",
+                next: "finish"
+            }
+        ]
     }
 
 };

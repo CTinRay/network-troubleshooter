@@ -27,11 +27,12 @@
                             
 		        </div>
                         <div class="guides">
-                            <button ng-repeat="guide in currentEnquiry.guides"
-                                    class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary"
-                                    ng-click="showGuide( guide )">
-                                {{ guide.name }}
-                            </button>                            
+                            <div ng-repeat="guide in currentEnquiry.guides">
+                                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary"
+                                        ng-click="showGuide( guide )">
+                                    {{ guide.name }}
+                                </button>
+                            </div>
                         </div>
 		        <div class="answers">
                             <div class="answer" ng-repeat="(index, situation) in currentEnquiry.situation ">
