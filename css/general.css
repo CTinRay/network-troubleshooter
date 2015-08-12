@@ -54,7 +54,7 @@ main {
     top: 0px;
     left: 0px;
     align-items: center;
-
+    z-index: 100;
 }
 
 .dialog{
@@ -63,7 +63,7 @@ main {
     width: calc( 80%  );
     height: 95%;
     background-color: white;
-    z-index: 200;
+    //z-index: 200;
     overflow: hidden;
     margin: auto;
 }
