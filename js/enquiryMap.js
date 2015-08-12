@@ -22,11 +22,11 @@ model.enquiryMap =  {
 	situation: [		    
 	    {
 		answer: "Yes",
-		next: "os"
+		next: "dns"
 	    },
 	    {
 		answer: "No",
-		next: "networkIcon"
+		next: "contact"
 	    }
 	]
     },
@@ -60,12 +60,20 @@ model.enquiryMap =  {
 	enquiry: "What is the network status icon?</br><img src='images/windows-network-status-icon-loacation.png'/>",
 	situation: [
 	    {
+		answer: "<img class='little' src='images/status-normal.png'/>",
+		next: "accessibility"
+	    },
+	    {
 		answer: "<img class='little' src='images/yellow-trangle-no-trans.png'/>",
 		next: "register"
 	    },
 	    {
 		answer: "<img class='little' src='images/red-x-no-trans.png'/>",
 		next: "hardware"
+	    },
+            {
+		answer:"other",
+		next: "contact"
 	    }
 	]
     },
@@ -131,7 +139,7 @@ model.enquiryMap =  {
 	enquiry: "What is the IP you get?<br/>( XX represent number 2~255 )",
         guides: [
             {
-                name: "How to see my ID?",
+                name: "How to see my IP?",
                 url: "guides/check-ip.html"
             }
         ],
@@ -178,10 +186,6 @@ model.enquiryMap =  {
 	    {
 		answer: "No",
 		next: "registerGuide"
-	    },
-	    {
-		answer: "I am not sure.",
-		next: "registerAgain"
 	    }
 	]
     },
@@ -189,7 +193,7 @@ model.enquiryMap =  {
     registerGuide: {
 	title: "Register",
 	enquiry: "When you are in your room, using the dorm wired network, see if you can open the <a href='140.112.2.197' >dorm network registration page</a>. If you can, complete the registration process, and wait for 5~10 minutes. Can you connect to the internet now?",
-        guide: [
+        guides: [
             {
                 name: "How to register the dorm network?",
                 url: "guides/register.html"
@@ -222,7 +226,7 @@ model.enquiryMap =  {
     dhcp: {
 	title: "DHCP Setting",
 	enquiry: "Check if you have enabled the DHCP. If you don't, enable it and wait for 1~5 minutes.",
-        guide: [
+        guides: [
             {
                 name: "How to see if my DHCP is enable?",
                 url: "guides/check-dhcp.html"
@@ -277,7 +281,7 @@ model.enquiryMap =  {
         guides: [
             {
                 name: "How to make my computer renew IP using DHCP?",
-                url: "dhcp-renew.html"
+                url: "renew-dhcp.html"
             }
         ],
         situation: [
@@ -332,14 +336,14 @@ model.enquiryMap =  {
     },
     
     contact: {
-	title: "Contact the network management assistant.",
+	title: "Contact the network management assistant.",        
 	situation: [
 	]		
     },
 
     slowSpeed: {
         title: "Slow Network Speed",
-        enquiry: "Go to the ntu network speed test page to test your network speed.",
+        enquiry: "Go to the <a href='http://speed.ntu.edu.tw/'> ntu network speed test</a> page to test your network speed.",
         situation: [
             {
                 answer: "It tells me that my download speed is > 8 mbps",
@@ -369,7 +373,7 @@ model.enquiryMap =  {
     
     wanSpeed: {
         title: "WAN Speed",
-        enquiry: "Try <a href='http://speed2.hinet.net/do.aspx'>Hinet network speed test.</a>",
+        enquiry: "Try <a href='http://speed2.hinet.net/do.aspx'>Hinet network speed test</a>.",
         situation: [
             {
                 answer: "It tells me that my download speed is > 8 mbps",
