@@ -4,8 +4,8 @@ var troubleshooterApp = angular.module( "networkTroubleshooter", ["ngSanitize", 
 
 troubleshooterApp.controller( "troubleshooterController", function( $scope ){
 
-    $scope.guideUrl = "guides/check-ip.html";
     $scope.guideOpen = true;
+    $scope.guide = { url: "guides/check-ip.html" };
     
     $scope.enquiryHistory = [];
     $scope.currentEnquiry = model.enquiryMap["issue"];

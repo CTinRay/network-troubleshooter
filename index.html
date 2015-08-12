@@ -10,7 +10,7 @@
                       enquiry-table">
 	    <tbody>
 	        <tr ng-repeat=" ( index, enquiry ) in enquiryHistory">
-		    <td class="mdl-data-table__cell--non-numeric" ng-click="historyBacktrack(index)">
+		    <td class="mdl-data-table__cell--non-numeric  enquiry-title" ng-click="historyBacktrack(index)">
 		        <span class="enquiry-history-title">
 			    {{ enquiry.title }}
 		        </span>

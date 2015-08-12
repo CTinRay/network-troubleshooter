@@ -7,7 +7,7 @@ model.enquiryMap =  {
 	situation:[
 	    {
 		answer: "Can not connect to internet.",
-		next: "accessibility"
+		next: "os"
 	    },
 	    {
 		answer: "The network speed is slow.",
@@ -34,6 +34,12 @@ model.enquiryMap =  {
     os: {
 	title: "Operation System",
 	enquiry: "What is your operation system?",
+        guides: [
+            {
+                name: "How to identify my operation system?",
+                url: "guides/check-os.html"
+            }
+        ],
 	situation: [
 	    {
 		answer: "Linux or Mac",
@@ -45,20 +51,20 @@ model.enquiryMap =  {
 	    },
 	    {
 		answer: "I don't know",
-		next: "networIcon"
+		next: "contact"
 	    }
 	]	
     },
     networkIcon: {
 	title: "Windows Network Icon",
-	enquiry: "What is the icon?",
+	enquiry: "What is the network status icon?</br><img src='images/windows-network-status-icon-loacation.png'/>",
 	situation: [
 	    {
-		answer: "Yellow triangle",
+		answer: "<img class='little' src='images/yellow-trangle-no-trans.png'/>",
 		next: "register"
 	    },
 	    {
-		answer: "Red X",
+		answer: "<img class='little' src='images/red-x-no-trans.png'/>",
 		next: "hardware"
 	    }
 	]
@@ -66,7 +72,7 @@ model.enquiryMap =  {
 
     hardware: {
 	title: "Hardware",
-	enquiry: "If your roomate can connect to the internet, try to connect to the internet using their cable and socket. Can you connect?",
+	enquiry: "If your roommate can connect to the internet, try to plug their cable in your computer.</br> Can you connect using their cable and socket?",
 	situation: [
 	    {
 		answer: "Yes",
@@ -80,7 +86,7 @@ model.enquiryMap =  {
     },
 
     cabelOrSocket: {
-	title: "Your cable or socket may be broken",
+	title: "Check the cable",
 	enquiry: "Borrow the cable from your roommate, plug it in your computer and your socket. Can you connect to internet now?",
 	situation: [
 	    {
@@ -95,8 +101,8 @@ model.enquiryMap =  {
     },
 
     cableBroken: {
-	title: "Your cable may be broken",
-	enquiry: "Try to get another one~",
+	title: "It may be your cable to be blame",
+	enquiry: "Your cable may have some problem.</br>You may need another one",
 	situation: [
 	    {
 		answer: "Finish",
@@ -114,7 +120,7 @@ model.enquiryMap =  {
 		next: "bye"
 	    },
 	    {
-		answer: "I believe it is not my computer's problem. Contact the network management assistant",
+		answer: "Or contact the network management assistant",
 		next: "contact"
 	    }
 	]

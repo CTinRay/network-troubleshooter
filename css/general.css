@@ -12,9 +12,13 @@ main {
     color: #9F9F9F;
 }
 
-.enquiry-history-title:hover {
+
+.enquiry-history-title {
     font-size: 20px;
-    color: #A0A0A0;
+}
+
+.enquiry-description img{
+    width: 100%;
 }
 
 .enquiry-table {
@@ -57,12 +61,11 @@ main {
     display: flex;
     flex-direction: column;
     width: calc( 80%  );
-    height: calc( 80% );
+    height: 95%;
     background-color: white;
     z-index: 200;
     overflow: hidden;
     margin: auto;
-    max-width: 700px;
 }
 
 
@@ -81,10 +84,15 @@ main {
 
 .dialog-content {
     height: 100%;
-    width: 100%;
+    width: calc( 100% - 30px );
     overflow-y:scroll;
     overflow-x:hidden;
     padding: 15px;
+}
+
+.dialog-content img {
+    width: 90%;
+    display: block;
 }
 
 .dialog-footer {
@@ -98,6 +106,12 @@ main {
 @media screen and (max-device-width: 480px){
     .dialog{
         width: 90%;
-        height: 90%;
+        height: 90%;        
     }
+    
+    .dialog-content img {
+        width: 100%;
+    }
+
+
 }
