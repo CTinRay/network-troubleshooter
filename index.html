@@ -28,7 +28,7 @@
 		        </div>
                         <div class="guides">
                             <button ng-repeat="guide in currentEnquiry.guides"
-                                    class="mdl-button mdl-js-button mdl-js-ripple-effect""
+                                    class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary"
                                     ng-click="showGuide( guide )">
                                 {{ guide.name }}
                             </button>                            
@@ -64,10 +64,12 @@
             </div> 
             <div class="dialog-content" >
                 <div ng-include="guide.url"></div>
+            </div>
+            <div class="dialog-footer">
                 <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
                         ng-click="hideGuide();">
                     Got it!
-                </button>                        
+                </button>                                        
             </div>
         </div>
     </div>
