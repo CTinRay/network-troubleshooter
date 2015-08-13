@@ -13,8 +13,33 @@ main {
 }
 
 
-.enquiry-history-title {
-    font-size: 20px;
+.enquiry-table tr{
+    height: 0px !important;
+}
+
+.enquiry-table tr.ng-leave td,
+.enquiry-table tr.ng-enter td{
+    animation-timing-function: linear;
+    transition: all 0.2s;
+    overflow: hidden;   
+}    
+
+.enquiry-table tr.ng-leave td,
+.enquiry-table tr.ng-enter.ng-enter-active td{    
+    vertical-align: top;
+    line-height: 20px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    height: 48px;
+}
+
+.enquiry-table tr.ng-leave.ng-leave-active td,
+.enquiry-table tr.ng-enter td{
+    vertical-align: middle;
+    line-height: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px !important;
+    height: 0px;
 }
 
 .enquiry-description img{

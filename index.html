@@ -3,14 +3,13 @@
     <meta charser="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="bower_components/angular/angular.js"></script>
-    
 </head>
 <body ng-app="networkTroubleshooter"  ng-controller="troubleshooterController">
     <main class="mdl-layout__content">
         <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp mdl-cell mdl-cell--6-col
                       enquiry-table">
 	    <tbody>
-	        <tr ng-repeat=" ( index, enquiry ) in enquiryHistory">
+	        <tr ng-repeat=" ( index, enquiry ) in enquiryHistory" >
 		    <td class="mdl-data-table__cell--non-numeric  enquiry-title" ng-click="historyBacktrack(index)">
 		        <span class="enquiry-history-title">
 			    {{ enquiry.title }}
