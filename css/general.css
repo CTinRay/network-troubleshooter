@@ -13,8 +13,26 @@ main {
 }
 
 
-.enquiry-history-title {
-    font-size: 20px;
+.enquiry-table tr{
+    height: 0px !important;
+}
+
+.enquiry-table tr.ng-leave td {    
+    overflow: hidden;
+    vertical-align: middle;
+    line-height: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    transition: all 0.2s;
+}
+
+.enquiry-table tr.ng-leave.ng-leave-active td{
+    overflow: hidden;
+    vertical-align: middle;
+    line-height: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px !important;
+    height: 0px;
 }
 
 .enquiry-description img{
