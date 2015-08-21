@@ -6,7 +6,7 @@
 .mdl-spinner {
     /* Hide the spinner when page has been loaded */
     display: none;
-    margin: 50px auto;
+    margin: 80px auto;
 }
 .mdl-spinner.ng-cloak {
     /* Show the spinner when page has not been fully loaded */
@@ -29,6 +29,7 @@ main {
 
 
 .enquiry-table tr{
+    margin-top: 20px;
     height: 0px !important;
 }
 
