@@ -1,18 +1,50 @@
+
 <!DOCTYPE html>
 <head>
-    <meta charser="utf-8"/>
+    <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Google MDL -->
+    <link rel="stylesheet" href="bower_components/material-design-lite/material.min.css">
+    <script src="bower_components/material-design-lite/material.min.js"></script>
+
+    <!-- Angular.js -->
     <script src="bower_components/angular/angular.js"></script>
-   
+    <script src="js/troubleshooterController.js"></script>
 </head>
-<body ng-app="networkTroubleshooter"  ng-controller="troubleshooterController">
-    <main class="mdl-layout__content">
+<body 
+    ng-app="networkTroubleshooter"  
+    ng-controller="troubleshooterController" 
+    data-ng-init="chooseLanguage(currentLanguage)" >
+    
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title">宿舍維修系統</span>
+
+          <div class="mdl-layout-spacer"></div>
+
+          <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href=""
+                ng-repeat=" ( lang, langInfo ) in languages" 
+                ng-show="currentLanguage != lang"
+                ng-click='chooseLanguage(lang)' >  
+                {{ langInfo.title }}
+            </a>
+          </nav>
+        </div>
+    </header>
+    
+    <!-- Progress Spinner -->
+    <div class="mdl-spinner mdl-js-spinner mdl-spinner--single-color is-active ng-cloak"></div>
+
+    <main class="mdl-layout__content" ng-cloak >
+        
         <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp mdl-cell mdl-cell--6-col
-                      enquiry-table">
+                      enquiry-table" >
 	    <tbody>
 	        <tr ng-repeat=" ( index, enquiry ) in enquiryHistory" >
-		    <td class="mdl-data-table__cell--non-numeric  enquiry-title" ng-click="historyBacktrack(index)">
-		        <span class="enquiry-history-title">
+		    <td class="mdl-data-table__cell--non-numeric  enquiry-title enquiry-history-title" ng-click="historyBacktrack(index)">
+		        <span >
 			    {{ enquiry.title }}
 		        </span>
 		    </td>
@@ -59,7 +91,7 @@
         </table>
     </main>
 
-    <div class="dialog-wrapper" ng-show="guideOpen">
+    <div class="dialog-wrapper" ng-show="guideOpen" ng-cloak >
         <div class="dialog mdl-shadow--2dp"   >
             <div class="dialog-header" >
                 {{ guide.name }}
@@ -77,14 +109,13 @@
     </div>
     
     <!-- Google MDL -->
-    <link rel="stylesheet" href="bower_components/material-design-lite/material.min.css">
+<!--     <link rel="stylesheet" href="bower_components/material-design-lite/material.min.css">
     <script src="bower_components/material-design-lite/material.min.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+ -->    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <!-- angular -->
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>    
-    <script src="js/enquiryMap.js"></script>
-    <script src="js/troubleshooterController.js"></script>
+    
     <!-- My CSS file -->
     <link rel="stylesheet" href="css/general.css">
 

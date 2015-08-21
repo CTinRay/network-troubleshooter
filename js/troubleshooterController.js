@@ -1,14 +1,45 @@
 'use strict';
 
+var defaultLanguage = 'zh';
+
+var languages = {
+    'zh': {
+        title: '中文版',
+    },
+    'en': {
+        title: 'English Version',
+    }
+};
+
+var model = model || { enquiryMap: {} };
+
 var troubleshooterApp = angular.module( "networkTroubleshooter", ["ngSanitize", "ngAnimate"] );
 
-troubleshooterApp.controller( "troubleshooterController", function( $scope ){
+troubleshooterApp.controller( "troubleshooterController", function( $scope , $http ){
+
+    $scope.languages = languages;
+    $scope.currentLanguage = defaultLanguage;
 
     $scope.guideOpen = false;
     $scope.guide = { url: "guides/check-ip.html" };
     
     $scope.enquiryHistory = [];
-    $scope.currentEnquiry = model.enquiryMap["issue"];
+
+    $scope.chooseLanguage = function (lang) {
+        // Load the enquiry map corresponding to the specified language
+        $http.get('data/' + lang + '/issues.json').
+            success(function(enquiryMap) {
+                model.enquiryMap = enquiryMap;
+                $scope.currentEnquiry = enquiryMap["issue"];
+            }).
+            error(function() {
+              console.log('data/' + lang + '/issues.json' + " cannot be loaded!");
+            });
+
+        // Update current language
+        $scope.currentLanguage = lang;
+        
+    };
 
     $scope.nextEnquiry = function ( next ){	
         if( next !== undefined ){

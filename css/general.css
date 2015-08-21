@@ -1,4 +1,18 @@
 
+/* Prevent angular.js from displaying before the page is fully rendered. */
+[ng-cloak] {
+  display: none !important;
+}
+.mdl-spinner {
+    /* Hide the spinner when page has been loaded */
+    display: none;
+    margin: 50px auto;
+}
+.mdl-spinner.ng-cloak {
+    /* Show the spinner when page has not been fully loaded */
+    display: block;
+}
+
 .mdl-data-table__cell--non-numeric {
     padding-bottom: 12px !important;
 }
@@ -10,6 +24,7 @@ main {
 .enquiry-history-title {
     font-size: 20px;
     color: #9F9F9F;
+    cursor: pointer;
 }
 
 
