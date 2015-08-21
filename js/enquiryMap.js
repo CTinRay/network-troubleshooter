@@ -281,7 +281,7 @@ model.enquiryMap =  {
         guides: [
             {
                 name: "How to make my computer renew IP using DHCP?",
-                url: "renew-dhcp.html"
+                url: "guides/renew-dhcp.html"
             }
         ],
         situation: [
