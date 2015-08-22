@@ -3,14 +3,14 @@ var model = model || {};
 model.enquiryMap =  {
     issue:{
 	title: "Issue",
-	enquiry: "What the problem you encounter?",
+	enquiry: "What problem do you encounter?",
 	situation:[
 	    {
-		answer: "Can not connect to internet.",
+		answer: "I can not connect to internet.",
 		next: "os"
 	    },
 	    {
-		answer: "The network speed is slow.",
+		answer: "The network is slow.",
 		next: "slowSpeed"
 	    }
 	]
@@ -57,7 +57,7 @@ model.enquiryMap =  {
     },
     networkIcon: {
 	title: "Windows Network Icon",
-	enquiry: "What is the network status icon?</br><img src='images/windows-network-status-icon-loacation.png'/>",
+	enquiry: "What is the network status icon?<br/><img src='images/windows-network-status-icon-loacation.png'/>",
 	situation: [
 	    {
 		answer: "<img class='little' src='images/status-normal.png'/>",
@@ -80,7 +80,7 @@ model.enquiryMap =  {
 
     hardware: {
 	title: "Hardware",
-	enquiry: "If your roommate can connect to the internet, try to plug their cable in your computer.</br> Can you connect using their cable and socket?",
+	enquiry: "If your roommate can connect to the internet, try plugging their cable into your computer.<br/> Does that work?",
 	situation: [
 	    {
 		answer: "Yes",
@@ -95,7 +95,7 @@ model.enquiryMap =  {
 
     cabelOrSocket: {
 	title: "Check the cable",
-	enquiry: "Borrow the cable from your roommate, plug it in your computer and your socket. Can you connect to internet now?",
+	enquiry: "Borrow a cable from your roommate, plug it into your computer. Can you connect to internet now?",
 	situation: [
 	    {
 		answer: "Yes",
@@ -109,8 +109,8 @@ model.enquiryMap =  {
     },
 
     cableBroken: {
-	title: "It may be your cable to be blame",
-	enquiry: "Your cable may have some problem.</br>You may need another one",
+	title: "We suspect that your cable might be broken",
+	enquiry: "You may need another one.",
 	situation: [
 	    {
 		answer: "Finish",
@@ -135,8 +135,8 @@ model.enquiryMap =  {
     },
     
     ip: {
-	title: "What is the IP you get",
-	enquiry: "What is the IP you get?<br/>( XX represent number 2~255 )",
+	title: "What's your IP?",
+	enquiry: "( XX represents any number within 2~255 )",
         guides: [
             {
                 name: "How to see my IP?",
@@ -176,8 +176,8 @@ model.enquiryMap =  {
     },	
     
     register:{
-	title: "Do you register?",
-	enquiry: "Have you register?",
+	title: "Have you registered?",
+	enquiry: "",
 	situation: [
 	    {
 		answer: "Yes",
@@ -192,7 +192,7 @@ model.enquiryMap =  {
 
     registerGuide: {
 	title: "Register",
-	enquiry: "When you are in your room, using the dorm wired network, see if you can open the <a href='140.112.2.197' >dorm network registration page</a>. If you can, complete the registration process, and wait for 5~10 minutes. Can you connect to the internet now?",
+	enquiry: "When you are in your room, using the dorm wired network, see if you can open the <a href='140.112.2.197' >dorm network registration page</a>. If you can, complete the registration process, and wait for 5~10 minutes <em>( PATIENT!! )</em>. Can you connect to the internet now?",
         guides: [
             {
                 name: "How to register the dorm network?",
@@ -204,14 +204,14 @@ model.enquiryMap =  {
 		answer: "I finish the registeration. And I can access to the internet now.",
 		next: "finish"
 	    },
-            {
-                answer: "I can open the registeration page, but it refuse me to register.",
-                next: "rent"
-            },
-            {
-                answer: "I can open the registeration page, but something seems to go wrong.",
-                next: "contact"
-            },
+        {
+            answer: "I can open the registeration page, but it refuse me to register.",
+            next: "rent"
+        },
+        {
+            answer: "I can open the registeration page, but something seems to go wrong.",
+            next: "contact"
+        },
 	    {
 		answer: "I have registered, but I still can not connect to the internet.",
 		next: "ip"
@@ -225,7 +225,7 @@ model.enquiryMap =  {
 
     dhcp: {
 	title: "DHCP Setting",
-	enquiry: "Check if you have enabled the DHCP. If you don't, enable it and wait for 1~5 minutes.",
+	enquiry: "Check if you have enabled DHCP. If you don't, enable it and wait for 1~5 minutes.",
         guides: [
             {
                 name: "How to see if my DHCP is enable?",
@@ -332,7 +332,7 @@ model.enquiryMap =  {
                 url: "guides/anti-virus.html"
             }            
         ],
-	enquiry: "Install one anti-virus software and scan your computer. If you don't have anti-virus software, you can download one from <a href='https://www.cc.ntu.edu.tw/chinese/services/serv_e04.asp'>NTU computer center</a>. After you find out and remove the virus, please contact the network management assistant. ( If you are blocked many time, the network management assistant may suggest that you reinstall the operation system of your computer. )"
+	enquiry: "Install an anti-virus software and scan your computer. If you don't have anti-virus software, you can download one from <a href='https://www.cc.ntu.edu.tw/chinese/services/serv_e04.asp'>NTU computer center</a>. After you find out and remove the virus, please contact the network management assistant. ( If you are blocked many time, the network management assistant may suggest that you reinstall the operation system of your computer. )"
     },
     
     contact: {
@@ -397,7 +397,7 @@ model.enquiryMap =  {
         ],
         situation: [
             {
-                answer: "That fix my problem.",
+                answer: "That fixes my problem.",
                 next: "finish"
             },
             {
