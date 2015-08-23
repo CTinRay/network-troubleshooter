@@ -19,7 +19,7 @@
   },
   "accessibility": {
     "title": "註冊網頁",
-    "enquiry": "你打的開 <a href='http:\/\/140.112.2.197'>宿舍註冊網頁<\/a> 嗎?",
+    "enquiry": "你打的開 <a  target='_blank' href='http:\/\/140.112.2.197'>宿舍註冊網頁<\/a> 嗎?",
     "situation": [
       {
         "answer": "是",
@@ -90,7 +90,7 @@
     "enquiry": "如果你室友的網路可以用，試試看把他的電腦插上你座位的網路孔。<br\/> 結果如何？",
     "situation": [
       {
-        "answer": "可以連上註冊介面（ <a href='dorm.ntu.edu.tw'>dorm.ntu.edu.tw</a> ）",
+        "answer": "可以連上註冊介面（ <a  target='_blank' href='dorm.ntu.edu.tw'>dorm.ntu.edu.tw</a> ）",
         "next": "cabelOrSocket"
       },
       {
@@ -197,7 +197,9 @@
   },
   "registerGuide": {
     "title": "註冊",
-    "enquiry": "When you are in your room, using the dorm wired network, see if you can open the <a href='140.112.2.197' >dorm network registration page<\/a>. If you can, complete the registration process, and wait for 5~10 minutes. Can you connect to the internet now?",
+    "enquiry": "請確認你插上你座位上的網路孔（不要插到別人座位的網路孔！）
+                看看你可否在<a  target='_blank' href='140.112.2.197'>此網頁<\/a>註冊。
+                註冊完請等個五到十分鐘（重要！），並告訴我你的情形。",
     "guides": [
       {
         "name": "如何註冊宿網？",
@@ -269,7 +271,7 @@
   },
   "block": {
     "title": "IP 被鎖？",
-    "enquiry": "請查看<a href='http://140.112.2.197/virus_st/index.html'>此頁面</a><br/><a href='http://cert.ntu.edu.tw/Module/Index/ip.php'>這個頁面</a>也可以。<br/>上面有沒有你的學號？",
+    "enquiry": "請查看<a  target='_blank' href='http://140.112.2.197/virus_st/index.html'>此頁面</a><br/><a  target='_blank' href='http://cert.ntu.edu.tw/Module/Index/ip.php'>這個頁面</a>也可以。<br/>上面有沒有你的學號？",
     "situation": [
       {
         "answer": "嗯～我赫然發現自己暴於其中…",
@@ -306,61 +308,64 @@
     ]
   },
   "setIP": {
-    "title": "Manually set your IP",
-    "enquiry": "Go to registration page to see what IP you should use. Then manually set your computer's IP accrodingly.",
+    "title": "手動設 IP",
+    "enquiry": "",
     "guides": [
       {
-        "name": "How to know the IP I should use?",
+        "name": "IP要怎麼查？",
         "url": "guides\/check-register-ip.html"
       },
       {
-        "name": "How to set my computer's IP?",
+        "name": "如何手動設 IP?",
         "url": "guides\/set-ip.html"
       }
     ],
     "situation": [
       {
-        "answer": "I successfully connect to the internet.",
+        "answer": "可以上網了！！Ya！！",
         "next": "finish"
       },
       {
-        "answer": "I can not understand how to do that.",
+        "answer": "我還是不會設",
         "next": "contact"
       }
     ]
   },
   "scan": {
-    "title": "Scan your computer.",
+    "title": "掃描電腦",
     "guides": [
       {
-        "name": "How to download a anti-virus software from NTU computer center?",
+        "name": "如何下載計中防毒軟體？",
         "url": "guides\/anti-virus.html"
       }
     ],
-    "enquiry": "Install one anti-virus software and scan your computer. If you don't have anti-virus software, you can download one from <a href='https:\/\/www.cc.ntu.edu.tw\/chinese\/services\/serv_e04.asp'>NTU computer center<\/a>. After you find out and remove the virus, please contact the network management assistant. ( If you are blocked many time, the network management assistant may suggest that you reinstall the operation system of your computer. )"
+    "enquiry": "你被計中鎖了！！原因八成是中毒<br/>
+    請裝一套防毒軟體，並對你的電腦做全身掃毒。若無防毒軟體，可以考慮使用<a  target='_blank' href='https:\/\/www.cc.ntu.edu.tw\/chinese\/services\/serv_e04.asp'>
+    計中提供的防毒軟體<\/a>。<br/>
+    掃完毒後，請聯絡網管。我們會幫你解鎖。如果你一天到晚被計中鎖，我們會建議你重灌。"
   },
   "contact": {
-    "title": "Contact the network management assistant.",
+    "title": "聯絡網管。",
     "situation": [
       
     ]
   },
   "slowSpeed": {
-    "title": "Slow Network Speed",
-    "enquiry": "Go to the <a href='http:\/\/speed.ntu.edu.tw\/'> ntu network speed test<\/a> page to test your network speed.",
+    "title": "龜速網路",
+    "enquiry": "去<a target='_blank' href='http:\/\/speed.ntu.edu.tw\/'> NTU Speed<\/a>測試你的網速。",
     "situation": [
       {
-        "answer": "It tells me that my download speed is > 8 mbps",
+        "answer": "測試結果：下載速度 > 8 mbps",
         "next": "wanSpeed"
       },
       {
-        "answer": "It tells me that my download speed is < 8 mbps",
+        "answer": "測試結果：下載速度 < 8 mbps",
         "next": "lanSpeed"
       }
     ]
   },
   "lanSpeed": {
-    "title": "Campus Low Speed",
+    "title": "龜速校園網路",
     "enquiry": "Something seems to go wrong. If the network keep slow, please contact your dorm network management assistant.",
     "situation": [
       {
@@ -375,7 +380,7 @@
   },
   "wanSpeed": {
     "title": "WAN Speed",
-    "enquiry": "Try <a href='http:\/\/speed2.hinet.net\/do.aspx'>Hinet network speed test<\/a>.",
+    "enquiry": "Try <a  target='_blank' href='http:\/\/speed2.hinet.net\/do.aspx'>Hinet network speed test<\/a>.",
     "situation": [
       {
         "answer": "It tells me that my download speed is > 8 mbps",

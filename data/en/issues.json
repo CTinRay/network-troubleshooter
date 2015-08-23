@@ -310,7 +310,7 @@
     "enquiry": "Go to registration page to see what IP you should use. Then manually set your computer's IP accrodingly.",
     "guides": [
       {
-        "name": "How to know the IP I should use?",
+        "name": "How to know which IP I should use?",
         "url": "guides\/check-register-ip.html"
       },
       {

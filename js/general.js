@@ -1,15 +1,15 @@
 var contactFormURL = "https://docs.google.com/forms/d/1M5hfCZmdP1zNFttbXoJfeGJ0gUxriESh6yaX2z1XNpY/viewform";
 
 function hideWelcomeOverlay () {
-	var d = document.getElementById("welcome");
+	var welcomeOverlay = document.getElementById("welcome");
 
 	// apply hide animation
-	d.className = d.className + " inactive";
+	welcomeOverlay.className = welcomeOverlay.className + " inactive";
 
 	// hide the element when the animation is finished.
 	setTimeout( 
 		function(){ 
-			d.className = d.className + " hide" 
+			welcomeOverlay.className = welcomeOverlay.className + " hide" 
 		}
 	, 500);
 }
