@@ -1,3 +1,6 @@
+
+
+
 li {
     list-style: none;
 }
@@ -38,9 +41,14 @@ li {
     transition: opacity .3s ease .15s;
 }
 
-.overlay.inactive {
+.inactive {
     opacity:0;
 }
+
+.hide {
+    display: none;
+}
+
 .overlay-description {
     margin-left: 30px;
     font-size: 18px;
@@ -202,6 +210,18 @@ main {
     .dialog-content img {
         max-width: 100%;
     }
+    
+    .overlay {
+        padding: 0;
+    }
 
+    .overlay h1 {
+        font-size: 40px;
+    }
+    .overlay-title {
+        font-size: 30px;
+    }
 
+    .overlay-description {
+    }
 }
