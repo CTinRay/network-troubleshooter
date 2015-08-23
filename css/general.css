@@ -218,6 +218,11 @@ main {
     .overlay h1 {
         font-size: 40px;
     }
+
+    .overlay ul {
+        padding-left: 10px;
+    }
+    
     .overlay-title {
         font-size: 30px;
     }
