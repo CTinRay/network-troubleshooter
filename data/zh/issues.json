@@ -90,7 +90,7 @@
     "enquiry": "如果你室友的網路可以用，試試看把他的電腦插上你座位的網路孔。<br\/> 結果如何？",
     "situation": [
       {
-        "answer": "可以連上註冊介面（ <a href='dorm.ntu.edu.tw'></a> ）",
+        "answer": "可以連上註冊介面（ <a href='dorm.ntu.edu.tw'>dorm.ntu.edu.tw</a> ）",
         "next": "cabelOrSocket"
       },
       {
@@ -168,11 +168,11 @@
         "next": "dhcp"
       },
       {
-        "answer": "other",
+        "answer": "其他",
         "next": "contact"
       },
       {
-        "answer": "I don't know",
+        "answer": "我不知道",
         "next": "contact"
       }
     ]
@@ -232,51 +232,51 @@
     }
   },
   "dhcp": {
-    "title": "DHCP Setting",
-    "enquiry": "Check if you have enabled the DHCP. If you don't, enable it and wait for 1~5 minutes.",
+    "title": "DHCP 設定",
+    "enquiry": "確認你有開啟 DHCP. 如果沒有，請將之開啟，並靜候一到五分鐘。",
     "guides": [
       {
-        "name": "How to see if my DHCP is enable?",
+        "name": "怎麼知道我是否已開啟 DHCP ?",
         "url": "guides\/check-dhcp.html"
       },
       {
-        "name": "How to enable DHCP?",
+        "name": "怎麼開啟 DHCP?",
         "url": "guides\/enable-dhcp.html"
       },
       {
-        "name": "How to see my IP?",
+        "name": "怎麼知道我的 IP 是什麼?",
         "url": "guides\/check-ip.html"
       }
     ],
     "situation": [
       {
-        "answer": "After DHCP is enabled, I still can not connect to the internet.<br\/>My IP is 140.112.XX.XX",
+        "answer": "DHCP 已開啟, 卻仍無法連上網路。<br\/>我的 IP 是 140.112.XX.XX",
         "next": "block"
       },
       {
-        "answer": "After DHCP is enabled, I still can not connect to the internet.<br\/>My IP is not 140.112.XX.XX.",
+        "answer": "DHCP 已開啟, 卻仍無法連上網路。<br\/>我的 IP 是 192.168.XX.XX ",
         "next": "renew"
       },
       {
-        "answer": "After DHCP is enabled, I can connect to the internet.",
+        "answer": "DHCP 已開啟, 也連上網路了！",
         "next": "finish"
       },
       {
-        "answer": "I am so confused.",
+        "answer": "對不起，我真的不知道你在講什麼…",
         "next": "contact"
       }
     ]
   },
   "block": {
-    "title": "Check if your IP is blocked",
-    "enquiry": "Check <a href='http:\/\/140.112.2.197\/virus_st\/index.html'>this page<\/a> to see if your student ID is on the list. <br\/>Or check if your IP is blocked in <a href='http:\/\/cert.ntu.edu.tw\/Module\/Index\/ip.php'>this page<\/a>.",
+    "title": "IP 被鎖？",
+    "enquiry": "請查看<a href='http://140.112.2.197/virus_st/index.html'>此頁面</a><br/><a href='http://cert.ntu.edu.tw/Module/Index/ip.php'>這個頁面</a>也可以。<br/>上面有沒有你的學號？",
     "situation": [
       {
-        "answer": "Oh, so bad, I was blocked",
+        "answer": "嗯～我赫然發現自己暴於其中…",
         "next": "scan"
       },
       {
-        "answer": "No, I am not blocked.",
+        "answer": "沒耶～我是無辜的。",
         "next": "contact"
       }
     ]

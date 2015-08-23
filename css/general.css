@@ -1,4 +1,6 @@
-
+li {
+    list-style: none;
+}
 /* Prevent angular.js from displaying before the page is fully rendered. */
 [ng-cloak] {
   display: none !important;
@@ -15,6 +17,43 @@
 
 .mdl-data-table__cell--non-numeric {
     padding-bottom: 12px !important;
+}
+
+.container {
+    margin: 0 auto;
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    left: 0;
+    display: inline;
+    z-index: 1;
+    background-color: black;
+    opacity: 0.97;
+    padding: 30px 0;
+    color: white;
+    transition: opacity .3s ease .15s;
+}
+
+.overlay.inactive {
+    opacity:0;
+}
+.overlay-description {
+    margin-left: 30px;
+    font-size: 18px;
+}
+.overlay-title {
+    display: inline-block;
+    cursor: pointer;
+    color: #FF4081;
+    transition: all .2s ease-in-out;
+}
+
+.overlay-title:hover {
+    transform: scale(1.1);
 }
 
 #logo {

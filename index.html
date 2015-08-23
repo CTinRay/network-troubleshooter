@@ -4,23 +4,23 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
+    <!-- Angular.js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="js/troubleshooterController.js"></script>
 
     <!-- Google MDL -->
     <link rel="stylesheet" href="bower_components/material-design-lite/material.min.css">
     <script src="bower_components/material-design-lite/material.min.js"></script>
 
-    <!-- Angular.js -->
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="js/troubleshooterController.js"></script>
-
     <!-- CSS file -->
     <link rel="stylesheet" href="css/general.css">
+    
 
 </head>
 <body 
     ng-app="networkTroubleshooter"  
     ng-controller="troubleshooterController" 
-    data-ng-init="chooseLanguage(currentLanguage)" >
+    ng-init="chooseLanguage(currentLanguage)" >
     
     <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
@@ -40,84 +40,109 @@
         </div>
     </header>
     
-    <!-- Progress Spinner -->
-    <div class="mdl-spinner mdl-js-spinner mdl-spinner--single-color is-active ng-cloak"></div>
-
-    <main class="mdl-layout__content" ng-cloak >
+    <div class="content">
+        <!-- Progress Spinner -->
+        <div class="mdl-spinner mdl-js-spinner mdl-spinner--single-color is-active ng-cloak"></div>
         
-        <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp mdl-cell mdl-cell--6-col
-                      enquiry-table" >
-	    <tbody>
-	        <tr ng-repeat=" ( index, enquiry ) in enquiryHistory" >
-		    <td class="mdl-data-table__cell--non-numeric  enquiry-title enquiry-history-title" ng-click="historyBacktrack(index)">
-		        <span >
-			    {{ enquiry.title }}
-		        </span>
-		    </td>
-	        </tr>
-	        <tr>
-		    <td class="mdl-data-table__cell--non-numeric">
-                        <div class="enquiry-title">
-                            <span >
-			        {{ currentEnquiry.title }}
-		            </span>
-                        </div>
-		        <div class="enquiry-description" ng-bind-html="currentEnquiry.enquiry" >
-                            
-		        </div>
-                        <div class="guides">
-                            <div ng-repeat="guide in currentEnquiry.guides">
-                                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary"
-                                        ng-click="showGuide( guide )">
-                                    {{ guide.name }}
+        <div class="overlay" id="welcome">
+            <div class="container mdl-cell mdl-cell--6-col mdl-cell--8-col-phone">
+                <h1>網路有問題？</h1>
+                <ul>
+                    <li >
+                        <h3 class="overlay-title" onclick="loadPage('DIY')">
+                            <i class="material-icons">arrow_forward</i>  試試我們的疑難排解
+                        </h3>
+                        <p class="overlay-description">自己的網路自己修！</p>
+                    </li>
+                    <li >
+                        <h3 class="overlay-title" onclick="loadPage('contact')">
+                            <i class="material-icons">arrow_forward</i>  直接聯絡網管
+                        </h3>
+                        <p class="overlay-description">請有心理準備靜待回覆～網管們不一定隨時有空！</p>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+        <main class="mdl-layout__content" ng-cloak >
+            
+            <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp mdl-cell mdl-cell--6-col
+                          enquiry-table" >
+            <tbody>
+                <tr ng-repeat=" ( index, enquiry ) in enquiryHistory" >
+                <td class="mdl-data-table__cell--non-numeric  enquiry-title enquiry-history-title" ng-click="historyBacktrack(index)">
+                    <span >
+                    {{ enquiry.title }}
+                    </span>
+                </td>
+                </tr>
+                <tr>
+                <td class="mdl-data-table__cell--non-numeric">
+                            <div class="enquiry-title">
+                                <span >
+                        {{ currentEnquiry.title }}
+                        </span>
+                            </div>
+                    <div class="enquiry-description" ng-bind-html="currentEnquiry.enquiry" >
+                                
+                    </div>
+                            <div class="guides">
+                                <div ng-repeat="guide in currentEnquiry.guides">
+                                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary"
+                                            ng-click="showGuide( guide )">
+                                        {{ guide.name }}
+                                    </button>
+                                </div>
+                            </div>
+                    <div class="answers">
+                                <div class="answer" ng-repeat="(index, situation) in currentEnquiry.situation ">
+                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" >
+                            <input type="radio" class="mdl-radio__button" ng-model="currentEnquiry.selected"
+                                               ng-value="{{ { index:index, next:situation.next} }}" name="next" />
+                            <span class="mdl-radio__label" ng-bind-html="situation.answer">
+                                        </span>
+                        </label>
+                                </div>
+                    </div>
+                            <div >
+                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+                                        ng-click="nextEnquiry(currentEnquiry.selected.next)">
+                                    Next
                                 </button>
                             </div>
-                        </div>
-		        <div class="answers">
-                            <div class="answer" ng-repeat="(index, situation) in currentEnquiry.situation ">
-			        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" >
-			            <input type="radio" class="mdl-radio__button" ng-model="currentEnquiry.selected"
-                                           ng-value="{{ { index:index, next:situation.next} }}" name="next" />
-			            <span class="mdl-radio__label" ng-bind-html="situation.answer">
-                                    </span>
-			        </label>
-                            </div>
-		        </div>
-                        <div >
-                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
-                                    ng-click="nextEnquiry(currentEnquiry.selected.next)">
-                                Next
-                            </button>
-                        </div>
-                        
-		    </td>
-	        </tr>
+                            
+                </td>
+                </tr>
 
-	    </tbody>
-        </table>
-    </main>
+            </tbody>
+            </table>
+        </main>
 
-    <div class="dialog-wrapper" ng-show="guideOpen" ng-cloak >
-        <div class="dialog mdl-shadow--2dp"   >
-            <div class="dialog-header" >
-                {{ guide.name }}
-            </div> 
-            <div class="dialog-content" >
-                <div ng-include="guide.url"></div>
-            </div>
-            <div class="dialog-footer">
-                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
-                        ng-click="hideGuide();">
-                    Got it!
-                </button>                                        
+        <div class="dialog-wrapper" ng-show="guideOpen" ng-cloak >
+            <div class="dialog mdl-shadow--2dp"   >
+                <div class="dialog-header" >
+                    {{ guide.name }}
+                </div> 
+                <div class="dialog-content" >
+                    <div ng-include="guide.url"></div>
+                </div>
+                <div class="dialog-footer">
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+                            ng-click="hideGuide();">
+                        Got it!
+                    </button>                                        
+                </div>
             </div>
         </div>
     </div>
     
+    <!-- custom js script -->
+    <script src="js/general.js"></script>  
+    
     <!-- Google MDL -->
-<!--     <link rel="stylesheet" href="bower_components/material-design-lite/material.min.css">
-    <script src="bower_components/material-design-lite/material.min.js"></script>
- -->    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
     <!-- angular -->
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>    
