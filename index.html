@@ -41,9 +41,6 @@
     </header>
     
     <div class="content">
-        <!-- Progress Spinner -->
-        <!-- Because the overlay below has covered the entire page at startup, this spinner becomes optional -->
-        <div class="mdl-spinner mdl-js-spinner mdl-spinner--single-color is-active ng-cloak"></div>
         
         <div class="overlay" id="welcome">
             <div class="container mdl-cell mdl-cell--6-col mdl-cell--8-col-phone">
@@ -84,7 +81,7 @@
             </div>
         </div>
 
-        <main class="mdl-layout__content" ng-cloak >
+        <main class="mdl-layout__content" >
             
             <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp mdl-cell mdl-cell--6-col
                           enquiry-table" >
@@ -131,7 +128,7 @@
                         <!-- Next Step -->
                         <div>
                             <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
-                                    ng-click="nextEnquiry(currentEnquiry)">
+                                    ng-click="nextEnquiry(currentEnquiry.selected.next)">
                                 Next
                             </button>
                         </div>

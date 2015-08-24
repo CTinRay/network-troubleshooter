@@ -3,18 +3,9 @@
 li {
     list-style: none;
 }
-/* Prevent angular.js from displaying before the page is fully rendered. */
-[ng-cloak] {
-  display: none !important;
-}
-.mdl-spinner {
-    /* Hide the spinner when page has been loaded */
-    display: none;
-    margin: 80px auto;
-}
-.mdl-spinner.ng-cloak {
-    /* Show the spinner when page has not been fully loaded */
-    display: block;
+
+a {
+    text-decoration: none;
 }
 
 .mdl-data-table__cell--non-numeric {
