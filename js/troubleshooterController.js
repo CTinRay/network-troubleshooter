@@ -42,9 +42,10 @@ troubleshooterApp.controller( "troubleshooterController", function( $scope , $ht
     };
 
     $scope.nextEnquiry = function ( next ){	
+        console.log(next);
         if( next !== undefined ){
-	    $scope.enquiryHistory.push( $scope.currentEnquiry );
-	    $scope.currentEnquiry = model.enquiryMap[ next ];
+	       $scope.enquiryHistory.push( $scope.currentEnquiry );
+	       $scope.currentEnquiry = model.enquiryMap[ next ];
             window.setTimeout(  window.componentHandler.upgradeDom, 100 );
         }
     };

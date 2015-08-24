@@ -66,6 +66,24 @@
             </div>
         </div>
 
+        <div class="overlay angular-animation-fade" id="guide" ng-show="guideOpen">
+            <div class="container mdl-cell mdl-cell--6-col mdl-cell--8-col-phone">
+                <div class="guide-title" >
+                    <h1>{{ guide.name }}</h1>
+                </div> 
+                <div class="guide-description" >
+                    <div ng-include="guide.url"></div>
+                </div>
+                <div class="guide-footer">
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+                            ng-click="hideGuide();">
+                        Got it!
+                    </button>                                        
+                </div>
+
+            </div>
+        </div>
+
         <main class="mdl-layout__content" ng-cloak >
             
             <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp mdl-cell mdl-cell--6-col
@@ -79,63 +97,52 @@
                 </td>
                 </tr>
                 <tr>
-                <td class="mdl-data-table__cell--non-numeric">
-                            <div class="enquiry-title">
-                                <span >
-                        {{ currentEnquiry.title }}
-                        </span>
-                            </div>
-                    <div class="enquiry-description" ng-bind-html="currentEnquiry.enquiry" >
-                                
-                    </div>
-                            <div class="guides">
-                                <div ng-repeat="guide in currentEnquiry.guides">
-                                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary"
-                                            ng-click="showGuide( guide )">
-                                        {{ guide.name }}
-                                    </button>
-                                </div>
-                            </div>
-                    <div class="answers">
-                                <div class="answer" ng-repeat="(index, situation) in currentEnquiry.situation ">
-                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" >
-                            <input type="radio" class="mdl-radio__button" ng-model="currentEnquiry.selected"
-                                               ng-value="{{ { index:index, next:situation.next} }}" name="next" />
-                            <span class="mdl-radio__label" ng-bind-html="situation.answer">
-                                        </span>
-                        </label>
-                                </div>
-                    </div>
-                            <div >
-                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
-                                        ng-click="nextEnquiry(currentEnquiry.selected.next)">
-                                    Next
+                    <td class="mdl-data-table__cell--non-numeric">
+                        <div class="enquiry-title">
+                            <span >
+                            {{ currentEnquiry.title }}
+                            </span>
+                        </div>
+                        
+                        <!-- Guide description -->
+                        <div class="enquiry-description" ng-bind-html="currentEnquiry.enquiry" ></div>
+                        
+                        <!-- Optional: A list of guides -->
+                        <div class="guides">
+                            <div ng-repeat="guide in currentEnquiry.guides">
+                                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary"
+                                        ng-click="showGuide( guide )">
+                                    {{ guide.name }}
                                 </button>
                             </div>
-                            
-                </td>
+                        </div>
+
+                        <!-- Prompt -->
+                        <div class="answers">
+                            <div class="answer" ng-repeat="(index, situation) in currentEnquiry.situation ">
+                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" >
+                                    <input type="radio" class="mdl-radio__button" ng-model="currentEnquiry.selected"
+                                                       ng-value="{{ { index:index, next:situation.next} }}" name="next" />
+                                    <span class="mdl-radio__label" ng-bind-html="situation.answer"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Next Step -->
+                        <div>
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+                                    ng-click="nextEnquiry(currentEnquiry)">
+                                Next
+                            </button>
+                        </div>
+                                
+                    </td>
                 </tr>
 
             </tbody>
             </table>
-        </main>
+        </main>  
 
-        <div class="dialog-wrapper angular-animation-fade" ng-show="guideOpen" ng-cloak >
-            <div class="dialog mdl-shadow--2dp"   >
-                <div class="dialog-header" >
-                    {{ guide.name }}
-                </div> 
-                <div class="dialog-content" >
-                    <div ng-include="guide.url"></div>
-                </div>
-                <div class="dialog-footer">
-                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
-                            ng-click="hideGuide();">
-                        Got it!
-                    </button>                                        
-                </div>
-            </div>
-        </div>
     </div>
     
     <!-- custom js script -->
