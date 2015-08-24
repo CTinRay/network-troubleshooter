@@ -389,7 +389,7 @@
   },
   "dns": {
     "title": "DNS Setting",
-    "enquiry": "Your problem may be result from improper DNS settings. Try to set DNS lookup server to be 140.112.254.4 and 8.8.8.8.",
+    "enquiry": "Your problem may be result from improper DNS settings. Try to set DNS lookup server to be 168.95.1.1 or 8.8.8.8.",
     "guides": [
       {
         "name": "How to configure DNS?",

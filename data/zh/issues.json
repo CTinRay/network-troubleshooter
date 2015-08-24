@@ -197,9 +197,7 @@
   },
   "registerGuide": {
     "title": "註冊",
-    "enquiry": "請確認你插上你座位上的網路孔（不要插到別人座位的網路孔！）
-                看看你可否在<a  target='_blank' href='140.112.2.197'>此網頁<\/a>註冊。
-                註冊完請等個五到十分鐘（重要！），並告訴我你的情形。",
+    "enquiry": "請確認你插上你座位上的網路孔（不要插到別人座位的網路孔！）看看你可否在<a  target='_blank' href='140.112.2.197'>此網頁<\/a>註冊。註冊完請等個五到十分鐘（重要！），並告訴我你的情形。",
     "guides": [
       {
         "name": "如何註冊宿網？",
@@ -339,10 +337,7 @@
         "url": "guides\/anti-virus.html"
       }
     ],
-    "enquiry": "你被計中鎖了！！原因八成是中毒<br/>
-    請裝一套防毒軟體，並對你的電腦做全身掃毒。若無防毒軟體，可以考慮使用<a  target='_blank' href='https:\/\/www.cc.ntu.edu.tw\/chinese\/services\/serv_e04.asp'>
-    計中提供的防毒軟體<\/a>。<br/>
-    掃完毒後，請聯絡網管。我們會幫你解鎖。如果你一天到晚被計中鎖，我們會建議你重灌。"
+    "enquiry": "你被計中鎖了！！原因八成是中毒<br/>請裝一套防毒軟體，並對你的電腦做全身掃毒。若無防毒軟體，可以考慮使用<a  target='_blank' href='https:\/\/www.cc.ntu.edu.tw\/chinese\/services\/serv_e04.asp'>計中提供的防毒軟體<\/a>。<br/>掃完毒後，請聯絡網管。我們會幫你解鎖。如果你一天到晚被計中鎖，我們會建議你重灌。"
   },
   "contact": {
     "title": "聯絡網管。",
@@ -366,54 +361,55 @@
   },
   "lanSpeed": {
     "title": "龜速校園網路",
-    "enquiry": "Something seems to go wrong. If the network keep slow, please contact your dorm network management assistant.",
+    "enquiry": "一定有什麼怪怪的東西在做怪…",
     "situation": [
       {
-        "answer": "Contact the dorm network management  assistant.",
+        "answer": "聯絡網管",
         "next": "contact"
       },
       {
-        "answer": "Finish",
+        "answer": "算了～就這樣八",
         "next": "finish"
       }
     ]
   },
   "wanSpeed": {
-    "title": "WAN Speed",
-    "enquiry": "Try <a  target='_blank' href='http:\/\/speed2.hinet.net\/do.aspx'>Hinet network speed test<\/a>.",
+    "title": "龜速外部網路",
+    "enquiry": "試試 <a  target='_blank' href='http:\/\/speed2.hinet.net\/do.aspx'>Hinet 測速<\/a>.",
     "situation": [
       {
-        "answer": "It tells me that my download speed is > 8 mbps",
+        "answer": "測試結果：下載速度 > 8 mbps",
         "next": "dns"
       },
       {
-        "answer": "It tells me that my download speed is < 8 mbps",
+        "answer": "測試結果：下載速度 < 8 mbps",
         "next": "reallySlow"
       }
     ]
   },
   "dns": {
-    "title": "DNS Setting",
-    "enquiry": "Your problem may be result from improper DNS settings. Try to set DNS lookup server to be 140.112.254.4 and 8.8.8.8.",
+    "title": "DNS",
+    "enquiry": "你的問題可能來自 DNS。 試試將 DNS 位置設為 168.95.1.1 或 8.8.8.8.",
     "guides": [
       {
-        "name": "How to configure DNS?",
+        "name": "DNS 怎麼設？",
         "url": "guides\/dns.html"
       }
     ],
     "situation": [
       {
-        "answer": "That fix my problem.",
+        "answer": "問題解決！",
         "next": "finish"
       },
       {
-        "answer": "The problem persist for a long time.<br\/>Network management assistant may be helpful.",
+        "answer": "還是無法上網… <br/>聯絡網管八。",
         "next": "contact"
       }
     ]
   },
   "finish": {
-    "title": "finish",
+    "title": "感謝您的愛用",
+    "enquiry": "希望有幫到一點小忙~"
     "guide": [
       {
         "name": "about",
@@ -422,7 +418,7 @@
     ],
     "situation": [
       {
-        "answer": "Finish",
+        "answer": "結束",
         "next": "finish"
       }
     ]
