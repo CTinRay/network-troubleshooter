@@ -1,20 +1,27 @@
 module.exports = function(grunt) {
 
     grunt.initConfig({
-        preload_assets: {
-            target: {
-                options: {
-                    template: 'preloadjs',
-                },
-                files: {
-                    'js/manifest.js': ['images/*']
-                }
-            }
+        manifest: {
+          generate: {
+            options: {
+              basePath: ".",
+              network: ["http://*", "https://*"],
+              fallback: ["/ /offline.html"],
+              exclude: ["js/jquery.min.js"],
+              preferOnline: true,
+              timestamp: true
+            },
+            src: [
+                "images/**/*",
+                "guides/*.html"
+            ],
+            dest: "manifest.appcache"
+          }
         }
     });
 
-    grunt.loadNpmTasks('grunt-preload-assets');
+    grunt.loadNpmTasks('grunt-manifest');
 
-    grunt.registerTask('default', ['preload_assets']);
+    grunt.registerTask('default', ['manifest']);
 
 };

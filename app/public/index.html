@@ -1,172 +1,175 @@
 
 <!DOCTYPE html >
-<head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <!-- Angular.js -->
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="js/troubleshooterController.js"></script>
-
-    <!-- Google MDL -->
-    <link rel="stylesheet" href="bower_components/material-design-lite/material.min.css">
-    
-
-    <!-- CSS file -->
-    <link rel="stylesheet" href="css/general.css">
-    
-    <title>國立台灣大學宿舍維修系統</title>
-
-</head>
-<body 
-    ng-app="networkTroubleshooter"  
-    ng-controller="troubleshooterController" 
-    ng-init="chooseLanguage('zh')" >
-
-    
-    <header class="mdl-layout__header">
-        <div class="mdl-layout__header-row">
-            <img id="logo" src="images/ntu-logo.png" alt="National Taiwan University">
-            <span class="mdl-layout-title">國立台灣大學宿舍維修系統</span>
-
-            <div class="mdl-layout-spacer"></div>
-
-            <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" href="/en">  
-                    English Version
-                </a>
-            </nav>
-        </div>
-    </header>
-    
-    <div class="content">
+<html manifest="manifest.appcache" >
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         
-        <div class="overlay" id="welcome">
-            <div class="container mdl-cell mdl-cell--6-col mdl-cell--8-col-phone">
-                <h1>網路有問題？</h1>
-                <ul>
-                    <li >
-                        <h3 class="overlay-title" onclick="loadPage('DIY')">
-                            <i class="material-icons">arrow_forward</i>  試試我們的疑難排解
-                        </h3>
-                        <p class="overlay-description">自己的網路自己修！</p>
-                    </li>
-                    <li >
-                        <h3 class="overlay-title" onclick="loadPage('contact')">
-                            <i class="material-icons">arrow_forward</i>  直接聯絡網管
-                        </h3>
-                        <p class="overlay-description">請有心理準備靜待回覆～<br/>網管們不一定隨時有空！</p>
-                    </li>
-                </ul>
+        <!-- Angular.js -->
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="js/troubleshooterController.js"></script>
 
-            </div>
-        </div>
+        <!-- Google MDL -->
+        <link rel="stylesheet" href="bower_components/material-design-lite/material.min.css">
         
-        <!-- Contact the dorm assistant -->
-<!--         
-        <div class="overlay" id="contact">
-            <div class="container mdl-cell mdl-cell--6-col mdl-cell--8-col-phone">
-                <h1>聯絡網管</h1>
-            </div>
-        </div>
- -->
-        <!-- Guide Modal -->
-        <div class="overlay angular-animation-fade" id="guide" ng-show="guideOpen">
-            <div class="container mdl-cell mdl-cell--6-col mdl-cell--8-col-phone">
-                <div class="guide-title" >
-                    <h1>{{ guide.name }}</h1>
-                </div> 
-                <div class="guide-description" >
-                    <div ng-include="guide.url"></div>
-                </div>
-                <div class="guide-footer">
-                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
-                            ng-click="hideGuide();">
-                        Got it!
-                    </button>                                        
-                </div>
 
-            </div>
-        </div>
+        <!-- CSS file -->
+        <link rel="stylesheet" href="css/general.css">
+        
+        <title>國立台灣大學宿舍維修系統</title>
 
-        <main class="mdl-layout__content" >
+    </head>
+    <body 
+        ng-app="networkTroubleshooter"  
+        ng-controller="troubleshooterController" 
+        ng-init="chooseLanguage('zh')" >
+
+        
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <img id="logo" src="images/ntu-logo.png" alt="National Taiwan University">
+                <span class="mdl-layout-title">國立台灣大學宿舍維修系統</span>
+
+                <div class="mdl-layout-spacer"></div>
+
+                <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link" href="/en">  
+                        English Version
+                    </a>
+                </nav>
+            </div>
+        </header>
+        
+        <div class="content">
             
-            <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp mdl-cell mdl-cell--6-col
-                          enquiry-table" >
-            <tbody>
-                <tr ng-repeat=" ( index, enquiry ) in enquiryHistory" >
-                <td class="mdl-data-table__cell--non-numeric  enquiry-title enquiry-history-title" ng-click="historyBacktrack(index)">
-                    <span >
-                    {{ enquiry.title }}
-                    </span>
-                </td>
-                </tr>
-                <tr>
-                    <td class="mdl-data-table__cell--non-numeric">
-                        <div class="enquiry-title">
-                            <span >
-                            {{ currentEnquiry.title }}
-                            </span>
-                        </div>
-                        
-                        <!-- Guide description -->
-                        <div class="enquiry-description" ng-bind-html="currentEnquiry.enquiry" ></div>
-                        
-                        <!-- Optional: A list of guides -->
-                        <div class="guides">
-                            <div ng-repeat="guide in currentEnquiry.guides">
-                                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary"
-                                        ng-click="showGuide( guide )">
-                                    {{ guide.name }}
+            <div class="overlay" id="welcome">
+                <div class="container mdl-cell mdl-cell--6-col mdl-cell--8-col-phone">
+                    <h1>網路有問題？</h1>
+                    <ul>
+                        <li >
+                            <h3 class="overlay-title" onclick="loadPage('DIY')">
+                                <i class="material-icons">arrow_forward</i>  試試我們的疑難排解
+                            </h3>
+                            <p class="overlay-description">自己的網路自己修！</p>
+                        </li>
+                        <li >
+                            <h3 class="overlay-title" onclick="loadPage('contact')">
+                                <i class="material-icons">arrow_forward</i>  直接聯絡網管
+                            </h3>
+                            <p class="overlay-description">請有心理準備靜待回覆～<br/>網管們不一定隨時有空！</p>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+            
+            <!-- Contact the dorm assistant -->
+    <!--         
+            <div class="overlay" id="contact">
+                <div class="container mdl-cell mdl-cell--6-col mdl-cell--8-col-phone">
+                    <h1>聯絡網管</h1>
+                </div>
+            </div>
+     -->
+            <!-- Guide Modal -->
+            <div class="overlay angular-animation-fade" id="guide" ng-show="guideOpen">
+                <div class="container mdl-cell mdl-cell--6-col mdl-cell--8-col-phone">
+                    <div class="guide-title" >
+                        <h1>{{ guide.name }}</h1>
+                    </div> 
+                    <div class="guide-description" >
+                        <div ng-include="guide.url"></div>
+                    </div>
+                    <div class="guide-footer">
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+                                ng-click="hideGuide();">
+                            Got it!
+                        </button>                                        
+                    </div>
+
+                </div>
+            </div>
+
+            <main class="mdl-layout__content" >
+                
+                <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp mdl-cell mdl-cell--6-col
+                              enquiry-table" >
+                <tbody>
+                    <tr ng-repeat=" ( index, enquiry ) in enquiryHistory" >
+                    <td class="mdl-data-table__cell--non-numeric  enquiry-title enquiry-history-title" ng-click="historyBacktrack(index)">
+                        <span >
+                        {{ enquiry.title }}
+                        </span>
+                    </td>
+                    </tr>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">
+                            <div class="enquiry-title">
+                                <span >
+                                {{ currentEnquiry.title }}
+                                </span>
+                            </div>
+                            
+                            <!-- Guide description -->
+                            <div class="enquiry-description" ng-bind-html="currentEnquiry.enquiry" ></div>
+                            
+                            <!-- Optional: A list of guides -->
+                            <div class="guides">
+                                <div ng-repeat="guide in currentEnquiry.guides">
+                                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary"
+                                            ng-click="showGuide( guide )">
+                                        {{ guide.name }}
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Prompt -->
+                            <div class="answers">
+                                <div class="answer" ng-repeat="(index, situation) in currentEnquiry.situation ">
+                                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" >
+                                        <input type="radio" class="mdl-radio__button" ng-model="currentEnquiry.selected"
+                                                           ng-value="{{ { index:index, next:situation.next} }}" name="next" />
+                                        <span class="mdl-radio__label" ng-bind-html="situation.answer"></span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Next Step -->
+                            <div>
+                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+                                        ng-click="nextEnquiry(currentEnquiry.selected.next)">
+                                    {{ currentEnquiry.nextMessage || 'Next' }}
                                 </button>
                             </div>
-                        </div>
+                                    
+                        </td>
+                    </tr>
 
-                        <!-- Prompt -->
-                        <div class="answers">
-                            <div class="answer" ng-repeat="(index, situation) in currentEnquiry.situation ">
-                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" >
-                                    <input type="radio" class="mdl-radio__button" ng-model="currentEnquiry.selected"
-                                                       ng-value="{{ { index:index, next:situation.next} }}" name="next" />
-                                    <span class="mdl-radio__label" ng-bind-html="situation.answer"></span>
-                                </label>
-                            </div>
-                        </div>
+                </tbody>
+                </table>
+            </main>  
 
-                        <!-- Next Step -->
-                        <div>
-                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
-                                    ng-click="nextEnquiry(currentEnquiry.selected.next)">
-                                {{ currentEnquiry.nextMessage || 'Next' }}
-                            </button>
-                        </div>
-                                
-                    </td>
-                </tr>
+        </div>
+        
+        <!-- custom js script -->
+        <script src="js/general.js"></script>  
+        
+        <!-- Google MDL -->
+        <script src="bower_components/material-design-lite/material.min.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-            </tbody>
-            </table>
-        </main>  
-
-    </div>
-    
-    <!-- custom js script -->
-    <script src="js/general.js"></script>  
-    
-    <!-- Google MDL -->
-    <script src="bower_components/material-design-lite/material.min.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
-    <!-- angular -->
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>    
-    
-    <!-- Preload.js -->
-    <script src="https://code.createjs.com/preloadjs-0.6.1.min.js"></script>
-    <script src="js/manifest.js"></script>
-    <script>
-        var queue = new createjs.LoadQueue(true);
-        queue.loadManifest(filesManifest);
-    </script>
-
-</body>
+        <!-- angular -->
+        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.js"></script>    
+        
+        <!-- Preload.js -->
+        <!--
+        <script src="https://code.createjs.com/preloadjs-0.6.1.min.js"></script>
+        <script src="js/manifest.js"></script>
+        <script>
+            var queue = new createjs.LoadQueue(true);
+            queue.loadManifest(filesManifest);
+        </script>
+        -->
+    </body>
+</html>
