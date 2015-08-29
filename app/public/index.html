@@ -20,7 +20,7 @@
 <body 
     ng-app="networkTroubleshooter"  
     ng-controller="troubleshooterController" 
-    ng-init="chooseLanguage(currentLanguage)" >
+    ng-init="chooseLanguage('zh')" >
 
     
     <header class="mdl-layout__header">
@@ -31,11 +31,8 @@
             <div class="mdl-layout-spacer"></div>
 
             <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" href=""
-                    ng-repeat=" ( lang, langInfo ) in languages" 
-                    ng-show="currentLanguage != lang"
-                    ng-click='chooseLanguage(lang)' >  
-                    {{ langInfo.title }}
+                <a class="mdl-navigation__link" href="/en">  
+                    English Version
                 </a>
             </nav>
         </div>
@@ -63,7 +60,15 @@
 
             </div>
         </div>
-
+        
+        <!-- Contact the dorm assistant -->
+<!--         <div class="overlay" id="contact">
+            <div class="container mdl-cell mdl-cell--6-col mdl-cell--8-col-phone">
+                <h1>聯絡網管</h1>
+            </div>
+        </div>
+ -->
+        <!-- Guide Modal -->
         <div class="overlay angular-animation-fade" id="guide" ng-show="guideOpen">
             <div class="container mdl-cell mdl-cell--6-col mdl-cell--8-col-phone">
                 <div class="guide-title" >
@@ -130,7 +135,7 @@
                         <div>
                             <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
                                     ng-click="nextEnquiry(currentEnquiry.selected.next)">
-                                Next
+                                {{ currentEnquiry.nextMessage || Next }}
                             </button>
                         </div>
                                 

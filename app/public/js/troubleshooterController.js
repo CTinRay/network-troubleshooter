@@ -2,22 +2,12 @@
 
 var defaultLanguage = 'zh';
 
-var languages = {
-    'zh': {
-        title: '中文版',
-    },
-    'en': {
-        title: 'English Version',
-    }
-};
-
 var model = model || { enquiryMap: {} };
 
 var troubleshooterApp = angular.module( "networkTroubleshooter", ["ngSanitize", "ngAnimate"] );
 
 troubleshooterApp.controller( "troubleshooterController", function( $scope , $http ){
 
-    $scope.languages = languages;
     $scope.currentLanguage = defaultLanguage;
 
     $scope.guideOpen = false;
@@ -43,9 +33,14 @@ troubleshooterApp.controller( "troubleshooterController", function( $scope , $ht
 
     $scope.nextEnquiry = function ( next ){	
         if( next !== undefined ){
-	       $scope.enquiryHistory.push( $scope.currentEnquiry );
-	       $scope.currentEnquiry = model.enquiryMap[ next ];
-            window.setTimeout(  window.componentHandler.upgradeDom, 100 );
+            if( next == 'ContactPage'){
+                console.log($scope.enquiryHistory);
+            }
+            else{
+                $scope.enquiryHistory.push( $scope.currentEnquiry );
+                $scope.currentEnquiry = model.enquiryMap[ next ];
+                window.setTimeout(  window.componentHandler.upgradeDom, 100 );
+            }
         }
     };
 

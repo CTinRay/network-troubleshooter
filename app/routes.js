@@ -10,6 +10,10 @@ module.exports = function(app) {
 		res.sendFile('index.html', { root: publicFileRoot });
 	});
 
+	app.get('/en', function(req, res) {
+		res.sendFile('en.index.html', { root: publicFileRoot });
+	});
+
 	app.get('/test', function(req, res) {
 		res.sendFile('test.html', { root: publicFileRoot });
 	});

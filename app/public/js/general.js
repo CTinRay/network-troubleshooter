@@ -18,6 +18,14 @@ function redirectToContactForm () {
 	window.location = contactFormURL;	
 }
 
+function execute (action) {
+	switch(action){
+		case 'done':
+			break;
+		case 'contact':
+			break;
+	}
+}
 function loadPage (targetPage) {
 	
 	switch(targetPage){

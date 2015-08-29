@@ -125,14 +125,14 @@
   },
   "computerHardware": {
     "title": "Computer Hardware",
-    "enquiry": "Your computer hardware may have some problem. Or, sometimes, some weird situation could happen. Your dorm network management assistant may be able to help you.",
+    "enquiry": "Your computer hardware may have some problem. Or, sometimes, some weird situation could happen. Your dorm network assistant may be able to help you.",
     "situation": [
       {
         "answer": "Ok Bye~",
         "next": "bye"
       },
       {
-        "answer": "Or contact the network management assistant",
+        "answer": "Or contact the network assistant",
         "next": "contact"
       }
     ]
@@ -337,14 +337,9 @@
         "url": "guides\/anti-virus.html"
       }
     ],
-    "enquiry": "Install one anti-virus software and scan your computer. If you don't have anti-virus software, you can download one from <a href='https:\/\/www.cc.ntu.edu.tw\/chinese\/services\/serv_e04.asp'>NTU computer center<\/a>. After you find out and remove the virus, please contact the network management assistant. ( If you are blocked many time, the network management assistant may suggest that you reinstall the operation system of your computer. )"
+    "enquiry": "Install one anti-virus software and scan your computer. If you don't have anti-virus software, you can download one from <a href='https:\/\/www.cc.ntu.edu.tw\/chinese\/services\/serv_e04.asp'>NTU computer center<\/a>. After you find out and remove the virus, please contact the network assistant. ( If you are blocked many time, the network assistant may suggest that you reinstall the operation system of your computer. )"
   },
-  "contact": {
-    "title": "Contact the network management assistant.",
-    "situation": [
-      
-    ]
-  },
+
   "slowSpeed": {
     "title": "Slow Network Speed",
     "enquiry": "Go to the <a href='http:\/\/speed.ntu.edu.tw\/'> ntu network speed test<\/a> page to test your network speed.",
@@ -361,7 +356,7 @@
   },
   "lanSpeed": {
     "title": "Campus Low Speed",
-    "enquiry": "Something seems to go wrong. If the network keep slow, please contact your dorm network management assistant.",
+    "enquiry": "Something seems to go wrong. If the network keep slow, please contact your dorm network assistant.",
     "situation": [
       {
         "answer": "Contact the dorm network management  assistant.",
@@ -402,10 +397,18 @@
         "next": "finish"
       },
       {
-        "answer": "The problem persist for a long time.<br\/>Network management assistant may be helpful.",
+        "answer": "The problem persist for a long time.<br\/>Network assistant may be helpful.",
         "next": "contact"
       }
     ]
+  },
+  "contact": {
+    "title": "Contact",
+    "enquiry": "Boy, your situation might require special treatmeat.<br/>",
+    "nextStep": {
+      "message": "Contact the Network Assistant",
+      "action": "contact"
+    } 
   },
   "finish": {
     "title": "finish",
@@ -415,11 +418,9 @@
         "url": "about.html"
       }
     ],
-    "situation": [
-      {
-        "answer": "Finish",
-        "next": "finish"
-      }
-    ]
+    "nextStep": {
+      "message": "Done",
+      "action": "done"
+    } 
   }
 }
