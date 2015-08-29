@@ -4,7 +4,6 @@
   "description": "a troubleshooter for M1 network",
   "main": "app/app.js",
   "scripts": {
-    "start": "NODE_PATH=./app:./public NODE_ENV=development nodemon --debug  --watch app -e js,html,css app/app.js && grunt app/public/Gruntfile.js"
   },
   "repository": {
     "type": "git",
@@ -18,10 +17,6 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/CTinRay/network-troubleshooter/issues"
-  },
-  "dependencies": {
-    "express": "~4.13.3",
-    "path": "~0.11.14"
   },
   "devDependencies": {
     "grunt-preload-assets": "~0.2.1",
