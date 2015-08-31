@@ -1,0 +1,122 @@
+
+<!DOCTYPE html >
+<html  manifest="manifest.appcache"> <!--  -->
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- CSS file -->
+        <link rel="stylesheet" href="css/build.css">
+        <script src="js/build.js"></script> 
+
+        <title>男一舍網路維修系統</title>
+        <base href="/">
+    </head>
+    <body 
+        ng-app="networkTroubleshooter"  
+        ng-controller="troubleshooterController" 
+        ng-init="chooseLanguage('zh')" 
+        >
+
+        
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <img id="logo" src="" alt="">
+                <span class="mdl-layout-title"><a id="brand" href="/">國立台灣大學男一舍網路維修系統</a></span>
+
+                <div class="mdl-layout-spacer"></div>
+
+                <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link" href="/en">  
+                        English Version
+                    </a>
+                </nav>
+            </div>
+        </header>
+        
+        <div class="content">
+            
+            <div ng-init="showOverlay( 'welcome' )" ng-show="overlay_url" class="overlay">
+                <div class="slide-animate-container container mdl-cell mdl-cell--6-col mdl-cell--8-col-phone">
+                    <div class="slide-animate" ng-include="overlay_url"></div>
+                </div>
+            </div>
+            
+            <main class="mdl-layout__content" >
+                
+                <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp mdl-cell mdl-cell--6-col
+                              enquiry-table" >
+                <tbody>
+                    <tr ng-repeat=" ( index, enquiry ) in enquiryHistory" >
+                    <td class="mdl-data-table__cell--non-numeric  enquiry-title enquiry-history-title" ng-click="historyBacktrack(index)">
+                        <span >
+                        {{ enquiry.title }}
+                        </span>
+                    </td>
+                    </tr>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">
+                            <div class="enquiry-title">
+                                <span >
+                                {{ currentEnquiry.title }}
+                                </span>
+                            </div>
+                            
+                            <!-- Guide description -->
+                            <div class="enquiry-description" ng-bind-html="currentEnquiry.enquiry" ></div>
+                            
+                            <!-- Optional: A list of guides -->
+                            <div class="guides">
+                                <div ng-repeat="guide in currentEnquiry.guides">
+                                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary"
+                                            ng-click="showGuide( guide.url )">
+                                        {{ guide.name }}
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Prompt -->
+                            <div class="answers">
+                                <div class="answer" ng-repeat="(index, situation) in currentEnquiry.situation ">
+                                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" >
+                                        <input type="radio" class="mdl-radio__button" ng-model="currentEnquiry.selected"
+                                                           ng-value="{{ { index:index, next:situation.next} }}" name="next" />
+                                        <span class="mdl-radio__label" ng-bind-html="situation.answer"></span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Next Step -->
+                            <div>
+                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+                                    ng-click="currentEnquiry.nextStep ? 
+                                    nextAction(currentEnquiry.nextStep.action) : 
+                                    nextEnquiry(currentEnquiry.selected.next)" >
+                                    {{ currentEnquiry.nextStep.message || 'Next' }}
+                                </button>
+                            </div>
+                                    
+                        </td>
+                    </tr>
+
+                </tbody>
+                </table>
+            </main>  
+
+        </div>
+         
+        
+        <link rel="stylesheet" href="http://fonts.googleapis.com/icon?family=Material+Icons">
+  
+        
+        <!-- Preload.js -->
+        <!--
+        <script src="https://code.createjs.com/preloadjs-0.6.1.min.js"></script>
+        <script src="js/manifest.js"></script>
+        <script>
+            var queue = new createjs.LoadQueue(true);
+            queue.loadManifest(filesManifest);
+        </script>
+        -->
+    </body>
+</html>
