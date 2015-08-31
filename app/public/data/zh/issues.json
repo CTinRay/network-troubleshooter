@@ -11,15 +11,11 @@
         "answer": "網路好慢",
         "next": "slowSpeed"
       }
-    ],
-    "selected": {
-      "index": 0,
-      "next": "os"
-    }
+    ]
   },
   "accessibility": {
     "title": "註冊網頁",
-    "enquiry": "你打的開 <a  target='_blank' href='http:\/\/140.112.2.197'>宿舍註冊網頁<\/a> 嗎?",
+    "enquiry": "你打的開 <a  target='_blank' href='http:\/\/140.112.2.197'>宿舍註冊網頁<i class='material-icons icon-external'>open_in_new</i><\/a> 嗎?",
     "situation": [
       {
         "answer": "是",
@@ -43,7 +39,7 @@
     "situation": [
       {
         "answer": "Linux 或 Mac",
-        "next": "unixLike"
+        "next": "contact"
       },
       {
         "answer": "Windows",
@@ -53,15 +49,11 @@
         "answer": "我不知道",
         "next": "contact"
       }
-    ],
-    "selected": {
-      "index": 1,
-      "next": "networkIcon"
-    }
+    ]
   },
   "networkIcon": {
     "title": "Windows 網路標示",
-    "enquiry": "網路狀態顯示什麼？<br\/><img src='images\/windows-network-status-icon-loacation.png'\/>",
+    "enquiry": "<p>網路狀態顯示什麼？</p><br\/><img src='images\/windows-network-status-icon-loacation.png'\/>",
     "situation": [
       {
         "answer": "<img class='little' src='images\/status-normal.png'\/>",
@@ -76,14 +68,10 @@
         "next": "hardware"
       },
       {
-        "answer": "other",
+        "answer": "其他",
         "next": "contact"
       }
-    ],
-    "selected": {
-      "index": 1,
-      "next": "register"
-    }
+    ]
   },
   "hardware": {
     "title": "硬體",
@@ -189,11 +177,7 @@
         "answer": "好像還沒",
         "next": "registerGuide"
       }
-    ],
-    "selected": {
-      "index": 1,
-      "next": "registerGuide"
-    }
+    ]
   },
   "registerGuide": {
     "title": "註冊",
@@ -225,11 +209,7 @@
         "answer": "我連註冊網頁都開不起來。",
         "next": "ip"
       }
-    ],
-    "selected": {
-      "index": 1,
-      "next": "rent"
-    }
+    ]
   },
   "dhcp": {
     "title": "DHCP 設定",
@@ -237,15 +217,15 @@
     "guides": [
       {
         "name": "怎麼知道我是否已開啟 DHCP ?",
-        "url": "guides\/check-dhcp.html"
+        "url": "guides/check-dhcp.html"
       },
       {
         "name": "怎麼開啟 DHCP?",
-        "url": "guides\/enable-dhcp.html"
+        "url": "guides/enable-dhcp.html"
       },
       {
         "name": "怎麼知道我的 IP 是什麼?",
-        "url": "guides\/check-ip.html"
+        "url": "guides/check-ip.html"
       }
     ],
     "situation": [
@@ -269,7 +249,7 @@
   },
   "block": {
     "title": "IP 被鎖？",
-    "enquiry": "請查看<a  target='_blank' href='http://140.112.2.197/virus_st/index.html'>此頁面</a><br/><a  target='_blank' href='http://cert.ntu.edu.tw/Module/Index/ip.php'>這個頁面</a>也可以。<br/>上面有沒有你的學號？",
+    "enquiry": "請查看<a  target='_blank' href='http://140.112.2.197/virus_st/index.html'>網路封鎖名單<i class='material-icons icon-external'>open_in_new</i></a><br/><a  target='_blank' href='http://cert.ntu.edu.tw/Module/Index/ip.php'>計中資安違規名單<i class='material-icons icon-external'>open_in_new</i></a>也可以。<br/>上面有沒有你的學號？",
     "situation": [
       {
         "answer": "嗯～我赫然發現自己暴於其中…",
@@ -337,17 +317,12 @@
         "url": "guides\/anti-virus.html"
       }
     ],
-    "enquiry": "你被計中鎖了！！原因八成是中毒<br/>請裝一套防毒軟體，並對你的電腦做全身掃毒。若無防毒軟體，可以考慮使用<a  target='_blank' href='https:\/\/www.cc.ntu.edu.tw\/chinese\/services\/serv_e04.asp'>計中提供的防毒軟體<\/a>。<br/>掃完毒後，請聯絡網管。我們會幫你解鎖。如果你一天到晚被計中鎖，我們會建議你重灌。"
+    "enquiry": "你被計中鎖了！！原因八成是中毒<br/>請裝一套防毒軟體，並對你的電腦做全身掃毒。若無防毒軟體，可以考慮使用<a  target='_blank' href='https:\/\/www.cc.ntu.edu.tw\/chinese\/services\/serv_e04.asp'>計中提供的防毒軟體<i class='material-icons icon-external'>open_in_new</i><\/a>。<br/>掃完毒後，請聯絡網管。我們會幫你解鎖。如果你一天到晚被計中鎖，我們會建議你重灌。"
   },
-  "contact": {
-    "title": "聯絡網管。",
-    "situation": [
-      
-    ]
-  },
+
   "slowSpeed": {
     "title": "龜速網路",
-    "enquiry": "去<a target='_blank' href='http:\/\/speed.ntu.edu.tw\/'> NTU Speed<\/a>測試你的網速。",
+    "enquiry": "去 <a target='_blank' href='http:\/\/speed.ntu.edu.tw\/'> NTU Speed<i class='material-icons icon-external'>open_in_new</i><\/a> 測試你的網速。",
     "situation": [
       {
         "answer": "測試結果：下載速度 > 8 mbps",
@@ -375,7 +350,7 @@
   },
   "wanSpeed": {
     "title": "龜速外部網路",
-    "enquiry": "試試 <a  target='_blank' href='http:\/\/speed2.hinet.net\/do.aspx'>Hinet 測速<\/a>.",
+    "enquiry": "試試 <a  target='_blank' href='http:\/\/speed2.hinet.net\/do.aspx'>Hinet 測速<i class='material-icons icon-external'>open_in_new</i><\/a>.",
     "situation": [
       {
         "answer": "測試結果：下載速度 > 8 mbps",
@@ -407,6 +382,14 @@
       }
     ]
   },
+  "contact": {
+    "title": "聯絡網管",
+    "enquiry": "看來您已經達到疑難排解的極限。您的問題還是需要網管親自解決。",
+    "nextStep": {
+      "message": "聯絡網管",
+      "action": "contact"
+    } 
+  },
   "finish": {
     "title": "感謝您的愛用",
     "enquiry": "希望有幫到一點小忙~",
@@ -416,11 +399,9 @@
         "url": "about.html"
       }
     ],
-    "situation": [
-      {
-        "answer": "結束",
-        "next": "finish"
-      }
-    ]
+    "nextStep": {
+      "message": "Done",
+      "action": "done"
+    } 
   }
 }

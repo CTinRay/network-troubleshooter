@@ -1,16 +1,53 @@
 'use strict';
 
 var defaultLanguage = 'zh';
-
 var model = model || { enquiryMap: {} };
+var troubleshooterApp = angular.module( "networkTroubleshooter", ["ngSanitize", "ngAnimate"] )
+/*  
+var troubleshooterApp = 
+angular
+    .module( "networkTroubleshooter", ["ngSanitize", "ngAnimate", "ngRoute"] )
+    .config(['$routeProvider','$locationProvider', function ($routeProvider, $locationProvider) {
+        $routeProvider
+            .when('/', {
+                templateUrl: 'partials/welcome.html',
+            })
+            .when('/DIY', {
+                controller: 'homeController'
+            })
+            .when('/contact', {
+                templateUrl: 'partials/contact.html',
+            })
+            .when('/term_of_service', {
+                templateUrl: 'partials/termOfService.html',
+            });
+        $locationProvider.html5Mode(true);
+    }]);
+*/
+troubleshooterApp.controller( "troubleshooterController", [ '$scope', '$http', '$location', function( $scope , $http , $location ){
 
-var troubleshooterApp = angular.module( "networkTroubleshooter", ["ngSanitize", "ngAnimate"] );
+    var troubleshooter = {
 
-troubleshooterApp.controller( "troubleshooterController", function( $scope , $http ){
+        done: function () {
+            console.log("TroubleShooter--Done");
+        },
 
+        contact: function () {
+            showOverlay('termOfService');
+            console.log("TroubleShooter--Contact");
+        }
+    };
+
+    
+    function showOverlay( url ){
+        $scope.overlay_url = 'partials/' + url + '.html'; 
+    };
+    function hideOverlay(){
+        $scope.overlay_url = '';
+    };
     $scope.currentLanguage = defaultLanguage;
 
-    $scope.guideOpen = false;
+    $scope.hideOverlay = false;
     $scope.guide = { url: "guides/check-ip.html" };
     
     $scope.enquiryHistory = [];
@@ -31,16 +68,16 @@ troubleshooterApp.controller( "troubleshooterController", function( $scope , $ht
         
     };
 
-    $scope.nextEnquiry = function ( next ){	
-        if( next !== undefined ){
-            if( next == 'ContactPage'){
-                console.log($scope.enquiryHistory);
-            }
-            else{
-                $scope.enquiryHistory.push( $scope.currentEnquiry );
-                $scope.currentEnquiry = model.enquiryMap[ next ];
-                window.setTimeout(  window.componentHandler.upgradeDom, 100 );
-            }
+    $scope.nextAction = function (action) {
+        // Do the specified action
+        troubleshooter[action]();
+    };
+
+    $scope.nextEnquiry = function ( next, action ){	
+        if( next ){
+            $scope.enquiryHistory.push( $scope.currentEnquiry );
+            $scope.currentEnquiry = model.enquiryMap[ next ];
+            window.setTimeout(  window.componentHandler.upgradeDom, 100 );
         }
     };
 
@@ -50,13 +87,18 @@ troubleshooterApp.controller( "troubleshooterController", function( $scope , $ht
         window.setTimeout(  window.componentHandler.upgradeDom, 100 );
     };
 
-    $scope.showGuide = function( guide ){
-        $scope.guide = guide;
-        $scope.guideOpen = true;
-    };
+    $scope.showGuide = function (url) {
+        $scope.guide_url = url;
+        showOverlay('guide');
+    }
 
-    $scope.hideGuide = function(){
-        $scope.guideOpen = false;
-    };
+    $scope.showOverlay = showOverlay;
 
-});
+    $scope.hideOverlay = hideOverlay;
+
+
+}]);
+
+troubleshooterApp.controller( 'homeController', [ '$scope', function( $scope ){
+    $scope.hideOverlay = true;
+}]);

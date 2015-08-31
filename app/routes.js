@@ -18,6 +18,11 @@ module.exports = function(app) {
 		res.sendFile('test.html', { root: publicFileRoot });
 	});
 
+	app.all('/manifest.appcache', function(req, res) {
+        res.writeHead(200, {'Content-Type': 'text/cache-manifest'});
+  		res.end("CACHE MANIFEST");
+	});
+
 
 	//
 	// api ---------------------------------------------------------------------
