@@ -1,0 +1,19 @@
+.mdl-layout__header-row .mdl-navigation {
+	padding-top: 5px;
+}
+ .mdl-layout__header-row .mdl-navigation__link  {
+	font-size: 21px;	
+	border-bottom: 13px solid transparent;
+}
+
+ .mdl-layout__header-row .mdl-navigation__link:hover  {
+	border-bottom: 13px solid rgb(6, 140, 2);
+}
+
+.mdl-layout__drawer {
+	width: 140px;
+}
+
+.mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
+	padding: 16px 40px;
+}

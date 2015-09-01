@@ -1,0 +1,73 @@
+<style>
+	#profile {
+	    text-align: center;
+	}
+	.field {
+
+	}
+
+	.field-name {
+		margin-right: 20px;
+	    font-size: 25px;
+	    color: #FF9E51;
+	    display: inline-block;
+	}
+
+	#profile .mdl-textfield.is-focused > .mdl-textfield__input  {
+		border-color: #FF9E51;
+	}
+
+	#profile .mdl-textfield {
+		max-width: 75%;
+	}
+
+	@media screen and (max-width: 350px) {
+	    #profile .mdl-textfield__input {
+	    	text-align: center;
+	    }
+	}
+
+	#profile #submit {
+		color: white;
+		font-size: 30px;
+		margin-top: 50px;
+		padding: 20px;
+		margin-bottom: 50px;
+		height: auto;
+		background-color: transparent;
+		border: none;
+		transition: background-color 0.3s ease-out;	
+	}
+
+	#profile #submit:hover {
+		background-color: rgba(158, 158, 158, 0.2);
+	}
+</style>
+<div id="profile">
+	<h1 class="accent" id="username">陳耘志</h1>
+	<form action="#">
+		<div class="field">
+			<span class="field-name">學號</span>
+			<div class="mdl-textfield mdl-js-textfield">
+				<input class="mdl-textfield__input" type="text" id="studentID" value="B03902074" />
+				<!-- ng-model -->
+			</div>
+		</div>
+		<div class="field">
+			<span class="field-name">手機</span>
+			<div class="mdl-textfield mdl-js-textfield">
+				<input class="mdl-textfield__input" type="text" id="phone" value="0978229545"/>
+				<!-- ng-model -->
+			</div>
+		</div>	
+		<div class="field">
+			<span class="field-name">房號</span>
+			<div class="mdl-textfield mdl-js-textfield">
+				<input class="mdl-textfield__input" type="text" id="roomID" value="229B"/>
+				<!-- ng-model -->
+			</div>
+		</div>
+		<input type="submit" value="更新資料" id="submit">
+	</form>
+	
+</div>
