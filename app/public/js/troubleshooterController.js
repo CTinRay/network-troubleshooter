@@ -3,27 +3,7 @@
 var defaultLanguage = 'zh';
 var model = model || { enquiryMap: {} };
 var troubleshooterApp = angular.module( "networkTroubleshooter", ["ngSanitize", "ngAnimate"] )
-/*  
-var troubleshooterApp = 
-angular
-    .module( "networkTroubleshooter", ["ngSanitize", "ngAnimate", "ngRoute"] )
-    .config(['$routeProvider','$locationProvider', function ($routeProvider, $locationProvider) {
-        $routeProvider
-            .when('/', {
-                templateUrl: 'partials/welcome.html',
-            })
-            .when('/DIY', {
-                controller: 'homeController'
-            })
-            .when('/contact', {
-                templateUrl: 'partials/contact.html',
-            })
-            .when('/term_of_service', {
-                templateUrl: 'partials/termOfService.html',
-            });
-        $locationProvider.html5Mode(true);
-    }]);
-*/
+
 troubleshooterApp.controller( "troubleshooterController", [ '$scope', '$http', '$location', function( $scope , $http , $location ){
 
     var troubleshooter = {
@@ -36,22 +16,57 @@ troubleshooterApp.controller( "troubleshooterController", [ '$scope', '$http', '
             showOverlay('termOfService');
             console.log($scope.enquiryHistory);
             console.log("TroubleShooter--Contact");
+        },
+        login: function () {
+            showOverlay('login');
+            console.log("TroubleShooter--Login");
+        },
+        logout: function () {
+            showOverlay('termOfService');
+            console.log("TroubleShooter--Logout");
+        },
+        profile: function () {
+            showOverlay('profile');
+            console.log("TroubleShooter--profile");
         }
     };
 
-    
+    var user = {
+        unauthenticated_user: {
+            navbarEntries: [
+                { 
+                    title: '登入',
+                    action: 'login'
+                }
+            ]
+        },
+        authenticated_user: {
+            navbarEntries: [
+                { 
+                    title: '個人資料',
+                    action: 'profile'
+                },
+                { 
+                    title: '登出',
+                    action: 'logout'
+                }
+            ]
+        }
+    }
+
     function showOverlay( url ){
         $scope.overlay_url = 'partials/' + url + '.html'; 
+        setTimeout(  window.componentHandler.upgradeDom , 100 );
     };
     function hideOverlay(){
         $scope.overlay_url = '';
     };
-    $scope.currentLanguage = defaultLanguage;
 
+    $scope.currentLanguage = defaultLanguage;
     $scope.hideOverlay = false;
     $scope.guide = { url: "guides/check-ip.html" };
-    
     $scope.enquiryHistory = [];
+    $scope.userIdentity = 'authenticated_user';
 
     $scope.chooseLanguage = function (lang) {
         // Load the enquiry map corresponding to the specified language
@@ -108,9 +123,34 @@ troubleshooterApp.controller( "troubleshooterController", [ '$scope', '$http', '
 
     $scope.hideOverlay = hideOverlay;
 
+    $scope.user = user;
 
 }]);
 
 troubleshooterApp.controller( 'homeController', [ '$scope', function( $scope ){
     $scope.hideOverlay = true;
 }]);
+
+
+
+/*  
+var troubleshooterApp = 
+angular
+    .module( "networkTroubleshooter", ["ngSanitize", "ngAnimate", "ngRoute"] )
+    .config(['$routeProvider','$locationProvider', function ($routeProvider, $locationProvider) {
+        $routeProvider
+            .when('/', {
+                templateUrl: 'partials/welcome.html',
+            })
+            .when('/DIY', {
+                controller: 'homeController'
+            })
+            .when('/contact', {
+                templateUrl: 'partials/contact.html',
+            })
+            .when('/term_of_service', {
+                templateUrl: 'partials/termOfService.html',
+            });
+        $locationProvider.html5Mode(true);
+    }]);
+*/

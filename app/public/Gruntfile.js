@@ -16,14 +16,23 @@ module.exports = function(grunt) {
                 "images/**/*",
                 "guides/*.html",
                 "partials/*.html",
-                "js/build.js",
                 "data/**/*.json",
-                "css/build.css",
-                "css/fonts/*"
+                "build/**/*"
             ],
             dest: "manifest.appcache"
           }
         },
+      cssmin: {
+        options: {
+          shorthandCompacting: false,
+          roundingPrecision: -1
+        },
+        target: {
+          files: {
+            'build/build.min.css': ['build/build.css']
+          }
+        }
+      },
       concat: {
         js: {
             src: [
@@ -42,23 +51,26 @@ module.exports = function(grunt) {
                   'bower_components/material-design-lite/material.min.js'
                   ],
 
-            dest: 'js/build.js',
+            dest: 'build/build.js',
         },
         css: {
             src: [
+                  'bower_components/normalize.css/normalize.css',
                   'bower_components/material-design-lite/material.min.css',
                   'css/font.css',
-                  'css/general.css'
+                  'css/general.css',
+                  'css/layout.css'
                   ],
 
-            dest: 'css/build.css',
+            dest: 'build/build.css',
         }
       }
     });
 
     grunt.loadNpmTasks('grunt-manifest');
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
 
-    grunt.registerTask('default', ['manifest','concat']);
+    grunt.registerTask('default', ['manifest','concat','cssmin']);
 
 };

@@ -3,8 +3,7 @@
   "ignore": [
     ".git",
     "node_modules/**/node_modules",
-    "app/public/js/build.js",
-    "app/public/css/build.css",
+    "app/public/build/*",
     "app/public/manifest.appcache"
   ],
   "verbose": true,
