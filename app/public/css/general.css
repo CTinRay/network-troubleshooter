@@ -17,6 +17,17 @@ p {
     line-height: 32px;
 }
 
+.emphasize {
+    background-image: linear-gradient(to right, #FFCACA 11%, rgba(255,255,255,0) 0%);
+    background-position: bottom;
+    background-size: 13px 1px;
+    padding-bottom: 4px;
+    background-repeat: repeat-x;
+}
+
+.overlay .emphasize {
+    color: #F74141;
+}
 h1.accent {
     color: #FFE735;
 }

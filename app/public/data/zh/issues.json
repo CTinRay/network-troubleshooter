@@ -15,7 +15,7 @@
   },
   "accessibility": {
     "title": "註冊網頁",
-    "enquiry": "你打的開 <a  target='_blank' href='http:\/\/140.112.2.197'>宿舍註冊網頁<i class='material-icons icon-external'>open_in_new</i><\/a> 嗎?",
+    "enquiry": "你打的開 <a  target='_blank' href='http:\/\/140.112.2.197'>宿舍註冊網頁<i class='material-icons icon-external'>open_in_new</i><\/a> 嗎 ( dorm.ntu.edu.tw )?",
     "situation": [
       {
         "answer": "是",
@@ -117,7 +117,7 @@
     "situation": [
       {
         "answer": "好吧……我認了",
-        "next": "bye"
+        "next": "finish"
       },
       {
         "answer": "救我～～網管大大",
@@ -368,7 +368,7 @@
     "guides": [
       {
         "name": "DNS 怎麼設？",
-        "url": "guides\/dns.html"
+        "url": "guides/dns.html"
       }
     ],
     "situation": [
@@ -393,12 +393,6 @@
   "finish": {
     "title": "感謝您的愛用",
     "enquiry": "希望有幫到一點小忙~",
-    "guide": [
-      {
-        "name": "about",
-        "url": "about.html"
-      }
-    ],
     "nextStep": {
       "message": "Done",
       "action": "done"

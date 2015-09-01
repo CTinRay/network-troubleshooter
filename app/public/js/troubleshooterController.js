@@ -34,6 +34,7 @@ troubleshooterApp.controller( "troubleshooterController", [ '$scope', '$http', '
 
         contact: function () {
             showOverlay('termOfService');
+            console.log($scope.enquiryHistory);
             console.log("TroubleShooter--Contact");
         }
     };
@@ -87,6 +88,17 @@ troubleshooterApp.controller( "troubleshooterController", [ '$scope', '$http', '
         window.setTimeout(  window.componentHandler.upgradeDom, 100 );
     };
 
+    $scope.exportEnquiries = function () {
+        var enquiry, exportJSON = [];
+        for (var i =  $scope.enquiryHistory.length - 1; i >= 0; i--) {
+             enquiry = $scope.enquiryHistory[i];
+             exportJSON.push( {
+                question: enquiry.title,
+                answer: enquiry.situation[ enquiry.selected.index ].answer
+            });
+
+        };
+    }
     $scope.showGuide = function (url) {
         $scope.guide_url = url;
         showOverlay('guide');

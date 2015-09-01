@@ -5,6 +5,8 @@
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <!-- favicon -->
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
         <!-- CSS file -->
         <link rel="stylesheet" href="css/build.css">
         <script src="js/build.js"></script> 
@@ -22,7 +24,7 @@
         <header class="mdl-layout__header">
             <div class="mdl-layout__header-row">
                 <img id="logo" src="" alt="">
-                <span class="mdl-layout-title"><a id="brand" href="/">國立台灣大學男一舍網路維修系統</a></span>
+                <span class="mdl-layout-title"><a id="brand" ng-click="showOverlay( 'welcome' )" href="/">國立台灣大學男一舍網路維修系統</a></span>
 
                 <div class="mdl-layout-spacer"></div>
 
@@ -105,10 +107,6 @@
 
         </div>
          
-        
-        <link rel="stylesheet" href="http://fonts.googleapis.com/icon?family=Material+Icons">
-  
-        
         <!-- Preload.js -->
         <!--
         <script src="https://code.createjs.com/preloadjs-0.6.1.min.js"></script>
